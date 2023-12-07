@@ -17,8 +17,16 @@ public abstract class Role {
 
     public enum RoleType {
         Admin("Admin"),
+        BusinessAdmin("Business Admin"),
         Doctor("Doctor"),
-        LabAssistant("Lab Assistant");
+        LabAssistant("Lab Assistant"),
+        AppLogEmp("Application Logistics Employee"),
+        Packager("Packager"),
+        AA_Officer("Airport Authority Officer"),
+        CargoAdmin("Cargo Admin"),
+        OGLogAdmin("On-Ground Shipping Admin"),
+        OGLogEmp("On-Ground Logistic Employee"),
+        Customer("User");
 
         private String value;
 

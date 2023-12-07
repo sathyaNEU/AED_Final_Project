@@ -32,10 +32,10 @@ public class OrganizationDirectory {
             organization = new LabOrganization();
             organizationList.add(organization);
         } else if (type.getValue().equals(Type.OGLogAdmin.getValue())) {
-            organization = new OGAdminOrganization();
+            organization = new OGLogAdminOrganization();
             organizationList.add(organization);
         } else if (type.getValue().equals(Type.OGLogEmp.getValue())) {
-            organization = new OGEmpOrganization();
+            organization = new OGLogEmpOrganization();
             organizationList.add(organization);
         } else if (type.getValue().equals(Type.AppLogEmp.getValue())) {
             organization = new AppLogEmpOrganization();
@@ -49,6 +49,13 @@ public class OrganizationDirectory {
         }
         else if (type.getValue().equals(Type.AA.getValue())) {
             organization = new AAOrganization();
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Type.Customer.getValue())) {
+            organization = new CustomerOrganization();
+            organizationList.add(organization);
+        } else if (type.getValue().equals(Type.BusinessAdmin.getValue())) {
+            organization = new BusinessAdminOrganization();
             organizationList.add(organization);
         }
         return organization;

@@ -29,6 +29,11 @@ public abstract class Organization {
 //            public Organization createOrganization() {
 //                return new AdminOrganization();
 //            }
+        },BusinessAdmin("Business Admin Organization") {
+//            //@Override
+//            public Organization createOrganization() {
+//                return new AdminOrganization();
+//            }
         }, Doctor("Doctor Organization"){
 //            public Organization createOrganization() {
 //                return new DoctorOrganization();
@@ -57,7 +62,11 @@ public abstract class Organization {
 //            public Organization createOrganization() {
 //                return new LabOrganization();
 //            }
-        }, OGLogEmp("On-Ground Employee Organization"){
+        }, OGLogEmp("On-Ground Logistic Employee Organization"){
+//            public Organization createOrganization() {
+//                return new LabOrganization();
+//            }
+        }, Customer("Customer Organization"){
 //            public Organization createOrganization() {
 //                return new LabOrganization();
 //            }
