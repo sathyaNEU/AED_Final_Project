@@ -5,7 +5,7 @@
 package business.Organization;
 
 import business.Role.LabAssistantRole;
-import business.Role.PackagerRole;
+import business.Role.OGLogEmpRole;
 import business.Role.Role;
 import java.util.ArrayList;
 
@@ -13,17 +13,15 @@ import java.util.ArrayList;
  *
  * @author Sathya
  */
-public class PackagingOrganization extends Organization{
-
-    public PackagingOrganization() {
-        super(Organization.Type.Packaging.getValue());
+public class OGLogEmpOrganization extends Organization{
+    public OGLogEmpOrganization() {
+        super(Organization.Type.OGLogEmp.getValue());
     }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList<>();
-        roles.add(new PackagerRole());
+        roles.add(new OGLogEmpRole());
         return roles;
     }
-    
 }

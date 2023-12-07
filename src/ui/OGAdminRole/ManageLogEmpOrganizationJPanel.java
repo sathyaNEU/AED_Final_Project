@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.AdministrativeRole;
+package ui.OGAdminRole;
 
+import ui.AdministrativeRole.*;
 import ErrorHelper.ErrorHelper;
 import business.Organization.CustomerOrganization;
 import business.Organization.Organization;
@@ -21,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author raunak
  */
-public class ManageOrganizationJPanel extends javax.swing.JPanel {
+public class ManageLogEmpOrganizationJPanel extends javax.swing.JPanel {
 
     private OrganizationDirectory directory;
     private JPanel userProcessContainer;
@@ -29,11 +30,11 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageOrganizationJPanel
      */
-    public ManageOrganizationJPanel(JPanel userProcessContainer,OrganizationDirectory directory) {
+    public ManageLogEmpOrganizationJPanel(JPanel userProcessContainer,OrganizationDirectory directory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.directory = directory;
-        
+        this.cmbOrganizations.removeAllItems();
         populateTable();
         populateCombo();
     }
@@ -41,10 +42,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     private void populateCombo(){
         cmbOrganizations.removeAllItems();
         ArrayList<String> orgList = new ArrayList<>();
-        orgList.add("Business Admin Organization");
-        orgList.add("Cargo Admin Organization");
-        orgList.add("Airport Authority Organization");
-        orgList.add("On-Ground Admin Organization");
+        orgList.add("On-Ground Logistic Employee Organization");
         for (Type type : Organization.Type.values()){
         if(orgList.contains(type.getValue()))
             cmbOrganizations.addItem(type);
@@ -52,15 +50,18 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     }
 
     private void populateTable(){
+        ArrayList<String> orgList = new ArrayList<>();
+        orgList.add("On-Ground Logistic Employee Organization");
         DefaultTableModel model = (DefaultTableModel) tblOrganizations.getModel();
         
         model.setRowCount(0);
         for (Organization organization : directory.getOrganizationList()){
-
+            if(orgList.contains(organization.getName())){
             Object[] row = new Object[2];
             row[0] = organization.getOrganizationID();
             row[1] = organization.getName();
             model.addRow(row);
+            }
 
         }
     }
@@ -193,6 +194,8 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         Type type = (Type) cmbOrganizations.getSelectedItem();
         if(!directory.checkOrgIfExist(type.getValue())){
             directory.createOrganization(type);
+            for(Organization org : directory.getOrganizationList())
+                System.out.print(org.getName());
         }
         else
             ErrorHelper.showWarning("Organization Already Exist");

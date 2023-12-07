@@ -4,6 +4,7 @@
  */
 package business;
 
+import business.Organization.Organization;
 import business.Organization.OrganizationDirectory;
 
 /**
@@ -28,5 +29,19 @@ public class Business {
 
     public OrganizationDirectory getOrganizationDirectory() {
         return organizationDirectory;
+    }
+    
+    public Organization getPackagingOrganization(){
+        for(Organization org : getOrganizationDirectory().getOrganizationList())
+            if(org.getName().equals(Organization.Type.Packaging))
+                return org;
+        return null;
+    }
+    
+        public Organization getAppLogOrganization(){
+        for(Organization org : getOrganizationDirectory().getOrganizationList())
+            if(org.getName().equals(Organization.Type.AppLogEmp))
+                return org;
+        return null;
     }
 }
