@@ -5,20 +5,28 @@
 package business.Enterprise.AppLogBusiness;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
  * @author Sathya
  */
 public class DailyPricingList {
-    ArrayList<DailyPricing> dailyPricingList;
+    //ArrayList<DailyPricing> dailyPricingList;
+    HashMap<String, DailyPricing> dailyPricingMap;
 
-    public ArrayList<DailyPricing> getDailyPricingList() {
-        return dailyPricingList;
+    public DailyPricingList() {
+        this.dailyPricingMap  = new HashMap<>();
+    }
+    
+    
+
+    public DailyPricing getDailyPricingList(String date) {
+        return dailyPricingMap.get(date);
     }
 
-    public void setDailyPricingList(ArrayList<DailyPricing> dailyPricingList) {
-        this.dailyPricingList = dailyPricingList;
+    public void setDailyPricing(String date, DailyPricing dp) {
+        this.dailyPricingMap.put(date, dp);
     }
     
 }

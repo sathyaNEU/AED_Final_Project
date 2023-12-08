@@ -13,17 +13,17 @@ import java.util.ArrayList;
  *
  * @author Sathya
  */
-public class CustomerOrganization extends Organization{
+public class CustomerOrganization extends Organization {
 
     public CustomerOrganization() {
-        super(Organization.Type.Customer.getValue());
+        super(Type.Customer.getValue());
     }
-    
+
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList<>();
         roles.add(new CustomerRole());
         return roles;
     }
-    
+
 }

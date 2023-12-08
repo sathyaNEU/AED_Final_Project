@@ -11,6 +11,7 @@ import business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import ui.Customer.CustomerSignUpJPanel;
 
 /**
  *
@@ -47,6 +48,7 @@ public class LoginScreen extends javax.swing.JPanel {
         txtUserName = new javax.swing.JTextField();
         pwdField = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -66,6 +68,13 @@ public class LoginScreen extends javax.swing.JPanel {
             }
         });
 
+        jToggleButton1.setText("Customer Sign-Up");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -80,16 +89,15 @@ public class LoginScreen extends javax.swing.JPanel {
                     .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblUser, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLogin)
-                    .addComponent(pwdField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtUserName)
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pwdField))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblPassword, lblUser});
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {pwdField, txtUserName});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +114,9 @@ public class LoginScreen extends javax.swing.JPanel {
                     .addComponent(pwdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnLogin)
-                .addGap(287, 287, 287))
+                .addGap(18, 18, 18)
+                .addComponent(jToggleButton1)
+                .addGap(247, 247, 247))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -144,9 +154,17 @@ public class LoginScreen extends javax.swing.JPanel {
 //        passwordField.setEnabled(false);
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        CustomerSignUpJPanel customerSignUpJPanel = new CustomerSignUpJPanel(mainWorkArea, business);
+        this.mainWorkArea.add("customerSignUpJPanel",customerSignUpJPanel);
+        ((CardLayout)this.mainWorkArea.getLayout()).next(this.mainWorkArea);
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUser;

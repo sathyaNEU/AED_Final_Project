@@ -23,6 +23,7 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
     UserAccount account;
     Organization organization;
     Business business;
+
     public BusinessAdminWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -45,6 +46,7 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
         userJButton = new javax.swing.JButton();
         manageOrganizationJButton = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
+        managePriceBtn = new javax.swing.JButton();
 
         manageEmpBtn2.setText("Manage Employees");
         manageEmpBtn2.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +77,14 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
         });
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblTitle.setText("On Ground Logistic Admin Work Area");
+        lblTitle.setText("Business Admin Work Area");
+
+        managePriceBtn.setText("Manage Pricing");
+        managePriceBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                managePriceBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -88,13 +97,14 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTitle)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(managePriceBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(userJButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(manageEmpBtn2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(manageOrganizationJButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnBack)))
-                .addContainerGap(488, Short.MAX_VALUE))
+                .addContainerGap(555, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,7 +119,9 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
                 .addComponent(manageEmpBtn2)
                 .addGap(18, 18, 18)
                 .addComponent(userJButton)
-                .addContainerGap(604, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(managePriceBtn)
+                .addContainerGap(564, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -117,7 +129,7 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
         // TODO add your handling code here:
         ManageAppSubEmpPanel manageAppSubEmpPanel = new ManageAppSubEmpPanel(userProcessContainer, account, organization, business);
         userProcessContainer.add("manageAppSubEmpPanel", manageAppSubEmpPanel);
-        ((CardLayout)this.userProcessContainer.getLayout()).next(this.userProcessContainer);
+        ((CardLayout) this.userProcessContainer.getLayout()).next(this.userProcessContainer);
     }//GEN-LAST:event_manageEmpBtn2ActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -130,7 +142,7 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
         // TODO add your handling code here:
         ManageAppSubEmpUserAccountJPanel manageAppSubEmpUserAccountJPanel = new ManageAppSubEmpUserAccountJPanel(userProcessContainer, business);
-        this.userProcessContainer.add("manageAppSubEmpUserAccountJPanel",manageAppSubEmpUserAccountJPanel);
+        this.userProcessContainer.add("manageAppSubEmpUserAccountJPanel", manageAppSubEmpUserAccountJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_userJButtonActionPerformed
@@ -138,10 +150,18 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
 
         ManageAppSubEmpOrganizationJPanel manageAppSubEmpOrganizationJPanel = new ManageAppSubEmpOrganizationJPanel(userProcessContainer, business.getOrganizationDirectory());
-        this.userProcessContainer.add("manageAppSubEmpOrganizationJPanel",manageAppSubEmpOrganizationJPanel);
+        this.userProcessContainer.add("manageAppSubEmpOrganizationJPanel", manageAppSubEmpOrganizationJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageOrganizationJButtonActionPerformed
+
+    private void managePriceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managePriceBtnActionPerformed
+        // TODO add your handling code here:
+        ManagePricingJPanel managePricingJPanel = new ManagePricingJPanel(userProcessContainer, account, organization, business);
+        this.userProcessContainer.add("managePricingJPanel", managePricingJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_managePriceBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -149,6 +169,7 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
     private javax.swing.JLabel lblTitle;
     private javax.swing.JButton manageEmpBtn2;
     private javax.swing.JButton manageOrganizationJButton;
+    private javax.swing.JButton managePriceBtn;
     private javax.swing.JButton userJButton;
     // End of variables declaration//GEN-END:variables
 }

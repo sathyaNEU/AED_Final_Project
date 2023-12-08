@@ -23,6 +23,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblTitle" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="managePriceBtn" alignment="0" max="32767" attributes="0"/>
                               <Component id="userJButton" alignment="0" max="32767" attributes="0"/>
                               <Component id="manageEmpBtn2" alignment="0" max="32767" attributes="0"/>
                               <Component id="manageOrganizationJButton" alignment="0" max="32767" attributes="0"/>
@@ -34,7 +35,7 @@
                       <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="488" max="32767" attributes="0"/>
+              <EmptySpace pref="555" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -51,7 +52,9 @@
               <Component id="manageEmpBtn2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="userJButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="604" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="managePriceBtn" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="564" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -94,8 +97,16 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="13" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="On Ground Logistic Admin Work Area"/>
+        <Property name="text" type="java.lang.String" value="Business Admin Work Area"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="managePriceBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Manage Pricing"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="managePriceBtnActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
