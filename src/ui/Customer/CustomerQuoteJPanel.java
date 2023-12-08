@@ -11,6 +11,8 @@ import java.awt.CardLayout;
 import javax.swing.JPanel;
 import ErrorHelper.ErrorHelper;
 import business.Enterprise.AppLogBusiness.DailyPricing;
+import business.Enterprise.AppLogBusiness.Pkg;
+import business.WorkQueue.AssignEmpWorkRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -28,12 +30,17 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
     UserAccount account;
     Organization organization;
     Business business;
+    float weight;
+    Pkg pkg;
     public CustomerQuoteJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.organization = organization;
         this.business = business;
+        populateCmbBox();
+        this.proceedBtn.setVisible(false);
+        this.typeCmbBox.setVisible(false);
     }
 
     /**
@@ -61,8 +68,8 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         getQuoteBtn = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
+        typeCmbBox = new javax.swing.JComboBox();
+        proceedBtn = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Estimated Billing");
@@ -95,7 +102,12 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Proceed ");
+        proceedBtn.setText("Proceed ");
+        proceedBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proceedBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -115,9 +127,9 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
                         .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(typeCmbBox, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(43, 43, 43)
-                                .addComponent(jButton1))
+                                .addComponent(proceedBtn))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -182,8 +194,8 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
                         .addComponent(priTcTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(typeCmbBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(proceedBtn))
                 .addContainerGap(406, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -218,7 +230,10 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
             priGstTextField.setText(String.valueOf(priGst));
             priTcTextField.setText(String.valueOf(priTc));
             
-            JOptionPane.showMessageDialog(this, "Prices are updated as of "+DailyPricing.getDate());
+            JOptionPane.showMessageDialog(this, "Prices are updated as of "+today);
+            this.weight = weight;
+            this.typeCmbBox.setVisible(true);
+            this.proceedBtn.setVisible(true);
             }
             else
                 ErrorHelper.showError("Prices Not Yet Configured. Please reach out to Audmin");
@@ -229,16 +244,59 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_getQuoteBtnActionPerformed
 
+    private void proceedBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proceedBtnActionPerformed
+        // TODO add your handling code here:
+        //0-> express 1->priority
+        int index = this.typeCmbBox.getSelectedIndex();
+        if(index==0){
+           this.pkg = this.business.getPackageList().createPackage(account, "Express");
+           String today = new SimpleDateFormat("dd/MM/YYYY").format(new Date());
+           DailyPricing dp = this.business.getDailyPricingList().getDailyPricingList(today);
+           if(pkg!=null){   
+               pkg.setWeight(this.weight);
+               pkg.setShippingPrice(this.weight*dp.getExpressPrice());
+               pkg.setGst(pkg.getShippingPrice()*10/100);
+               pkg.setNetPrice();
+           }
+           else{
+               ErrorHelper.showError("Something went wrong");
+               return;
+           }
+        }
+        else if(index==1){
+           this.pkg = this.business.getPackageList().createPackage(account, "Priority");
+           String today = new SimpleDateFormat("dd/MM/YYYY").format(new Date());
+           DailyPricing dp = this.business.getDailyPricingList().getDailyPricingList(today);
+           if(pkg!=null){   
+               pkg.setWeight(this.weight);
+               pkg.setShippingPrice(this.weight*dp.getPriorityPrice());
+               pkg.setGst(pkg.getShippingPrice()*10/100);
+               pkg.setNetPrice();
+           }
+           else{
+               ErrorHelper.showError("Something went wrong");
+               return;
+           }
+        }
+        AssignEmpWorkRequest assignEmpWorkRequest = new AssignEmpWorkRequest();
+        assignEmpWorkRequest.setPkg(pkg);
+        assignEmpWorkRequest.setSender(account);
+        assignEmpWorkRequest.setStatus("Sent");
+        assignEmpWorkRequest.setMessage("Request for Support Person Assignment");
+        assignEmpWorkRequest.setRequestDate(new Date());
+        this.account.getWorkQueue().getWorkRequestList().add(assignEmpWorkRequest);
+        this.business.getAppLogEmpOrganization().getWorkQueue().getWorkRequestList().add(assignEmpWorkRequest);
+        JOptionPane.showMessageDialog(this, "A request has been sent to the concerned team\n. You will be assigned an Logistic Support Person very soon\nHope you have a good experience");
+        
+    }//GEN-LAST:event_proceedBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBack1;
     private javax.swing.JTextField expGstTextField;
     private javax.swing.JTextField expScTextField;
     private javax.swing.JTextField expTotalChargesTextField;
     private javax.swing.JButton getQuoteBtn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -249,6 +307,14 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField priGstTextField;
     private javax.swing.JTextField priScTextField;
     private javax.swing.JTextField priTcTextField;
+    private javax.swing.JButton proceedBtn;
+    private javax.swing.JComboBox typeCmbBox;
     private javax.swing.JTextField weightTextField;
     // End of variables declaration//GEN-END:variables
+
+    private void populateCmbBox() {
+        this.typeCmbBox.removeAllItems();
+        this.typeCmbBox.addItem("Express");
+        this.typeCmbBox.addItem("Priority");
+    }
 }

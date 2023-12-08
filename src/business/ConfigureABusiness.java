@@ -6,6 +6,7 @@ package business;
 
 import business.Employee.Employee;
 import business.Enterprise.AppLogBusiness.DailyPricingList;
+import business.Enterprise.AppLogBusiness.PackageList;
 import business.Organization.AdminOrganization;
 import business.Organization.CustomerOrganization;
 import business.Organization.Organization;
@@ -43,6 +44,9 @@ public class ConfigureABusiness {
         
         DailyPricingList dailyPricingList = new DailyPricingList();
         business.setDailyPricingList(dailyPricingList);
+        
+        PackageList packageList = new PackageList();
+        business.setPackageList(packageList);
         
         return business;
     }
