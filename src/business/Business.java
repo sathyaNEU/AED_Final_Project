@@ -4,6 +4,8 @@
  */
 package business;
 
+import business.Enterprise.AppLogBusiness.DailyPricing;
+import business.Enterprise.AppLogBusiness.DailyPricingList;
 import business.Organization.Organization;
 import business.Organization.OrganizationDirectory;
 
@@ -15,6 +17,7 @@ public class Business {
 
     private static Business business;
     private OrganizationDirectory organizationDirectory;
+    private DailyPricingList dailyPricingList;
 
     public static Business getInstance() {
         if (business == null) {
@@ -33,15 +36,31 @@ public class Business {
     
     public Organization getPackagingOrganization(){
         for(Organization org : getOrganizationDirectory().getOrganizationList())
-            if(org.getName().equals(Organization.Type.Packaging))
+            if(org.getName().equals(Organization.Type.Packaging.getValue()))
                 return org;
         return null;
     }
     
         public Organization getAppLogOrganization(){
         for(Organization org : getOrganizationDirectory().getOrganizationList())
-            if(org.getName().equals(Organization.Type.AppLogEmp))
+            if(org.getName().equals(Organization.Type.AppLogEmp.getValue()))
                 return org;
         return null;
     }
+        
+        public Organization getCustomerOrganization(){
+        for(Organization org : getOrganizationDirectory().getOrganizationList())
+            if(org.getName().equals(Organization.Type.Customer.getValue())){
+                return org;
+            }
+        return null;
+    }
+        
+       public DailyPricingList getDailyPricingList(){
+           return this.dailyPricingList;
+       }
+           
+       public void setDailyPricingList(DailyPricingList dp){
+           this.dailyPricingList = dp;
+       }
 }

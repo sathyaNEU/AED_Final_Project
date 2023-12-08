@@ -5,9 +5,13 @@
 package business;
 
 import business.Employee.Employee;
+import business.Enterprise.AppLogBusiness.DailyPricingList;
 import business.Organization.AdminOrganization;
+import business.Organization.CustomerOrganization;
+import business.Organization.Organization;
 import business.Role.AdminRole;
 import business.UserAccount.UserAccount;
+import java.util.HashMap;
 
 /**
  *
@@ -22,6 +26,9 @@ public class ConfigureABusiness {
         AdminOrganization adminOrganization = new AdminOrganization();
         business.getOrganizationDirectory().getOrganizationList().add(adminOrganization);
         
+        //CustomerOrganization customerOrganization = new CustomerOrganization();
+        //business.getOrganizationDirectory().getOrganizationList().add(customerOrganization);
+        business.getOrganizationDirectory().createOrganization(Organization.Type.Customer);        
         Employee employee = new Employee();
         employee.setName("Akeem of Zamunda");
         
@@ -33,6 +40,9 @@ public class ConfigureABusiness {
         
         adminOrganization.getEmployeeDirectory().getEmployeeList().add(employee);
         adminOrganization.getUserAccountDirectory().getUserAccountList().add(account);
+        
+        DailyPricingList dailyPricingList = new DailyPricingList();
+        business.setDailyPricingList(dailyPricingList);
         
         return business;
     }

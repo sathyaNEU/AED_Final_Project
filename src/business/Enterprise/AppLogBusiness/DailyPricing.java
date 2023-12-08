@@ -13,23 +13,33 @@ import java.util.Date;
  */
 public class DailyPricing {
     static String date;
-    static float price;
+    float expressPrice;
+    float priorityPrice;
 
     public static String getDate() {
         return date;
     }
 
     public static void setDate(Date dt) {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yy");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/YYYY");
         date = formatter.format(dt);
     }
 
-    public static float getPrice() {
-        return price;
+    public  float getExpressPrice() {
+        return expressPrice;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
+    public void setExpressPrice(float price) {
+        this.expressPrice = price;
+    }
+
+    public  void setPriorityPrice(float priorityPrice) {
+        this.priorityPrice = priorityPrice;
+    }
+    
+    
+    public  float getPriorityPrice() {
+        return priorityPrice;
     }
     
     
