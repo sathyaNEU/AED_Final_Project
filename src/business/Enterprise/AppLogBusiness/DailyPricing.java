@@ -12,15 +12,15 @@ import java.util.Date;
  * @author Sathya
  */
 public class DailyPricing {
-    static String date;
+    String date;
     float expressPrice;
     float priorityPrice;
 
-    public static String getDate() {
+    public  String getDate() {
         return date;
     }
 
-    public static void setDate(Date dt) {
+    public  void setDate(Date dt) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/YYYY");
         date = formatter.format(dt);
     }

@@ -41,23 +41,25 @@ public class CustomerWorkArea extends javax.swing.JPanel {
     private void initComponents() {
 
         lblTitle = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        getQuoteBtn = new javax.swing.JToggleButton();
+        orderHistoryBtn = new javax.swing.JButton();
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblTitle.setText("Customer Work Area");
 
-        jToggleButton1.setText("Get Quote");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        getQuoteBtn.setText("Get Quote");
+        getQuoteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                getQuoteBtnActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Place Order");
-
-        jButton2.setText("Order History");
+        orderHistoryBtn.setText("Order History");
+        orderHistoryBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderHistoryBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -68,9 +70,8 @@ public class CustomerWorkArea extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTitle)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)))
+                        .addComponent(getQuoteBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(orderHistoryBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)))
                 .addContainerGap(632, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -79,27 +80,31 @@ public class CustomerWorkArea extends javax.swing.JPanel {
                 .addGap(33, 33, 33)
                 .addComponent(lblTitle)
                 .addGap(27, 27, 27)
-                .addComponent(jToggleButton1)
-                .addGap(26, 26, 26)
-                .addComponent(jButton1)
-                .addGap(29, 29, 29)
-                .addComponent(jButton2)
-                .addContainerGap(603, Short.MAX_VALUE))
+                .addComponent(getQuoteBtn)
+                .addGap(33, 33, 33)
+                .addComponent(orderHistoryBtn)
+                .addContainerGap(647, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void getQuoteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getQuoteBtnActionPerformed
         // TODO add your handling code here:
         CustomerQuoteJPanel customerQuoteJPanel = new CustomerQuoteJPanel(userProcessContainer, account, organization, business);
         this.userProcessContainer.add("customerQuoteJPanel",customerQuoteJPanel);
         ((CardLayout)this.userProcessContainer.getLayout()).next(this.userProcessContainer);
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_getQuoteBtnActionPerformed
+
+    private void orderHistoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderHistoryBtnActionPerformed
+        // TODO add your handling code here:
+        OrderHistoryJPanel orderHistoryJPanel = new OrderHistoryJPanel(userProcessContainer, account, organization, business);
+        this.userProcessContainer.add("orderHistoryJPanel",orderHistoryJPanel);
+        ((CardLayout)this.userProcessContainer.getLayout()).next(this.userProcessContainer);
+    }//GEN-LAST:event_orderHistoryBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton getQuoteBtn;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JButton orderHistoryBtn;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,7 +10,7 @@ import business.UserAccount.UserAccount;
  *
  * @author Sathya
  */
-public class Package {
+public class Pkg {
     static int id=0;
     int package_id;
     UserAccount customerUA;
@@ -21,8 +21,9 @@ public class Package {
     float shippingPrice;
     String shipType;
 
-    public Package(String shipType) {
+    public Pkg(UserAccount ua, String shipType) {
         this.shipType = shipType;
+        this.customerUA = ua;
         this.package_id = ++id;
     }
     

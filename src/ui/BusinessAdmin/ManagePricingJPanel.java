@@ -137,9 +137,9 @@ public class ManagePricingJPanel extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
       try{
-      String today = new SimpleDateFormat("dd/MM/YYYY").format(new Date());
       DailyPricing dp = new DailyPricing();
       dp.setDate(new Date());
+      String today = dp.getDate();
       float expPriceF = Float.parseFloat(this.expPriceTextField.getText());
       //String expPrice = String.valueOf(expPriceF);
       float priPriceF  = Float.parseFloat(this.priorityPriceTextField.getText());
