@@ -13,6 +13,7 @@ import ErrorHelper.ErrorHelper;
 import business.Enterprise.AppLogBusiness.DailyPricing;
 import business.Enterprise.AppLogBusiness.Pkg;
 import business.WorkQueue.AssignEmpWorkRequest;
+import business.WorkQueue.WorkRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -278,6 +279,8 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
                return;
            }
         }
+        boolean isExist = checkAnyOpenReqExist();
+        if(!isExist){
         AssignEmpWorkRequest assignEmpWorkRequest = new AssignEmpWorkRequest();
         assignEmpWorkRequest.setPkg(pkg);
         assignEmpWorkRequest.setSender(account);
@@ -286,8 +289,11 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
         assignEmpWorkRequest.setRequestDate(new Date());
         this.account.getWorkQueue().getWorkRequestList().add(assignEmpWorkRequest);
         this.business.getAppLogEmpOrganization().getWorkQueue().getWorkRequestList().add(assignEmpWorkRequest);
-        JOptionPane.showMessageDialog(this, "A request has been sent to the concerned team\n. You will be assigned an Logistic Support Person very soon\nHope you have a good experience");
-        
+        JOptionPane.showMessageDialog(this, "A request has been sent to the concerned team\nYou will be assigned an Logistic Support Person very soon\nHope you have a good experience");
+        }
+        else{
+            ErrorHelper.showError("One of our representatives will look into your\nrequest. Thanks for your patience");
+        }
     }//GEN-LAST:event_proceedBtnActionPerformed
 
 
@@ -316,5 +322,15 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
         this.typeCmbBox.removeAllItems();
         this.typeCmbBox.addItem("Express");
         this.typeCmbBox.addItem("Priority");
+    }
+
+    private boolean checkAnyOpenReqExist() {
+        for(WorkRequest workRequest : this.account.getWorkQueue().getWorkRequestList()){
+            if(workRequest.getStatus().equalsIgnoreCase("Pending") ||
+               workRequest.getStatus().equalsIgnoreCase("Processing")||
+               workRequest.getStatus().equalsIgnoreCase("Sent"))
+                return true;
+        }
+        return false;
     }
 }
