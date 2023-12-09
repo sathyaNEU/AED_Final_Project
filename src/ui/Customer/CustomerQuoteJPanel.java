@@ -258,6 +258,7 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
                pkg.setShippingPrice(this.weight*dp.getExpressPrice());
                pkg.setGst(pkg.getShippingPrice()*10/100);
                pkg.setNetPrice();
+               pkg.setStatus(0);
            }
            else{
                ErrorHelper.showError("Something went wrong");
@@ -285,7 +286,7 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
         assignEmpWorkRequest.setPkg(pkg);
         assignEmpWorkRequest.setSender(account);
         assignEmpWorkRequest.setStatus("Sent");
-        assignEmpWorkRequest.setMessage("Request for Support Person Assignment");
+        assignEmpWorkRequest.setMessage(this.pkg);
         assignEmpWorkRequest.setRequestDate(new Date());
         this.account.getWorkQueue().getWorkRequestList().add(assignEmpWorkRequest);
         this.business.getAppLogEmpOrganization().getWorkQueue().getWorkRequestList().add(assignEmpWorkRequest);

@@ -177,7 +177,7 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
 
         if (selectedRow >= 0) {
             WorkRequest request = (WorkRequest) tblWorkRequests.getValueAt(selectedRow, 0);
-            if (request.getMessage().equalsIgnoreCase("Completed")) {
+            if (request.getMessage().toString().equalsIgnoreCase("Completed")) {
                 JOptionPane.showMessageDialog(null, "Request already processed.");
                 return;
             } else {

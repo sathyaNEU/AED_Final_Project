@@ -7,6 +7,7 @@ package business;
 import business.Enterprise.AppLogBusiness.DailyPricing;
 import business.Enterprise.AppLogBusiness.DailyPricingList;
 import business.Enterprise.AppLogBusiness.PackageList;
+import business.Enterprise.AppLogBusiness.sItemList;
 import business.Organization.Organization;
 import business.Organization.OrganizationDirectory;
 
@@ -43,34 +44,40 @@ public class Business {
     public OrganizationDirectory getOrganizationDirectory() {
         return organizationDirectory;
     }
-    
-    public Organization getPackagingOrganization(){
-        for(Organization org : getOrganizationDirectory().getOrganizationList())
-            if(org.getName().equals(Organization.Type.Packaging.getValue()))
-                return org;
-        return null;
-    }
-    
-        public Organization getAppLogEmpOrganization(){
-        for(Organization org : getOrganizationDirectory().getOrganizationList())
-            if(org.getName().equals(Organization.Type.AppLogEmp.getValue()))
-                return org;
-        return null;
-    }
-        
-        public Organization getCustomerOrganization(){
-        for(Organization org : getOrganizationDirectory().getOrganizationList())
-            if(org.getName().equals(Organization.Type.Customer.getValue())){
+
+    public Organization getPackagingOrganization() {
+        for (Organization org : getOrganizationDirectory().getOrganizationList()) {
+            if (org.getName().equals(Organization.Type.Packaging.getValue())) {
                 return org;
             }
+        }
         return null;
     }
-        
-       public DailyPricingList getDailyPricingList(){
-           return this.dailyPricingList;
-       }
-           
-       public void setDailyPricingList(DailyPricingList dp){
-           this.dailyPricingList = dp;
-       }
+
+    public Organization getAppLogEmpOrganization() {
+        for (Organization org : getOrganizationDirectory().getOrganizationList()) {
+            if (org.getName().equals(Organization.Type.AppLogEmp.getValue())) {
+                return org;
+            }
+        }
+        return null;
+    }
+
+    public Organization getCustomerOrganization() {
+        for (Organization org : getOrganizationDirectory().getOrganizationList()) {
+            if (org.getName().equals(Organization.Type.Customer.getValue())) {
+                return org;
+            }
+        }
+        return null;
+    }
+
+    public DailyPricingList getDailyPricingList() {
+        return this.dailyPricingList;
+    }
+
+    public void setDailyPricingList(DailyPricingList dp) {
+        this.dailyPricingList = dp;
+    }
+
 }

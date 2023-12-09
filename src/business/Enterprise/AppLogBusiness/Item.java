@@ -28,4 +28,9 @@ public class Item {
         this.status = status;
     }
     
+    @Override
+   public String toString(){
+       return this.item;
+   }
+    
 }
