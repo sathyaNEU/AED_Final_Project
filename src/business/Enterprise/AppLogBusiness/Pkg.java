@@ -20,6 +20,30 @@ public class Pkg {
     float gst;
     float shippingPrice;
     String shipType;
+    int status;
+    // 0-> req to assign log emp
+    // 1-> log emp assigned
+    // 2-> Items added by customer
+    // 3-> Items reviewed by log emp
+    // 4-> Items sent to packager
+    // 5-> Items are packed
+    // 6-> Cargo schedule booked
+    // 7-> Items are sent to customs by log emp
+    // 8-> Customs are cleared
+    // 9-> Delivered to Cargo
+    // 10-> OG Admin Received
+    // 11-> OG log emp assigned
+    // 12-> OG log emp delivered
+    
+    
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     public Pkg(UserAccount ua, String shipType) {
         this.shipType = shipType;
@@ -79,7 +103,14 @@ public class Pkg {
     public void setNetPrice() {
         this.netPrice = this.shippingPrice*weight + gst;
     }
+
+    public int getPackage_id() {
+        return package_id;
+    }
     
+    public String toString(){
+        return "Package ID : "+String.valueOf(this.getPackage_id());
+    }
     
     
 }

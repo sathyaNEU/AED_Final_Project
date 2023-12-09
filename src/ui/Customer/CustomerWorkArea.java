@@ -43,6 +43,7 @@ public class CustomerWorkArea extends javax.swing.JPanel {
         lblTitle = new javax.swing.JLabel();
         getQuoteBtn = new javax.swing.JToggleButton();
         orderHistoryBtn = new javax.swing.JButton();
+        orderHistoryBtn1 = new javax.swing.JButton();
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblTitle.setText("Customer Work Area");
@@ -61,6 +62,13 @@ public class CustomerWorkArea extends javax.swing.JPanel {
             }
         });
 
+        orderHistoryBtn1.setText("Manage Packages");
+        orderHistoryBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderHistoryBtn1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -71,7 +79,8 @@ public class CustomerWorkArea extends javax.swing.JPanel {
                     .addComponent(lblTitle)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(getQuoteBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(orderHistoryBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)))
+                        .addComponent(orderHistoryBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(orderHistoryBtn1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(632, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -83,7 +92,9 @@ public class CustomerWorkArea extends javax.swing.JPanel {
                 .addComponent(getQuoteBtn)
                 .addGap(33, 33, 33)
                 .addComponent(orderHistoryBtn)
-                .addContainerGap(647, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(orderHistoryBtn1)
+                .addContainerGap(593, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -101,10 +112,15 @@ public class CustomerWorkArea extends javax.swing.JPanel {
         ((CardLayout)this.userProcessContainer.getLayout()).next(this.userProcessContainer);
     }//GEN-LAST:event_orderHistoryBtnActionPerformed
 
+    private void orderHistoryBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderHistoryBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orderHistoryBtn1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton getQuoteBtn;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JButton orderHistoryBtn;
+    private javax.swing.JButton orderHistoryBtn1;
     // End of variables declaration//GEN-END:variables
 }

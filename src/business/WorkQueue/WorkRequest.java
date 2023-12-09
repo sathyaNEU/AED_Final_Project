@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public abstract class WorkRequest {
 
-    private String message;
+    private Object message;
     private UserAccount sender;
     private UserAccount receiver;
     private String status;
@@ -24,11 +24,11 @@ public abstract class WorkRequest {
         requestDate = new Date();
     }
 
-    public String getMessage() {
+    public Object getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(Object message) {
         this.message = message;
     }
 
@@ -72,10 +72,5 @@ public abstract class WorkRequest {
         this.resolveDate = resolveDate;
     }
     
-    @Override
-    
-    public String toString(){
-        return this.message;
-    }
             
 }
