@@ -49,6 +49,7 @@ public class Pkg {
         this.shipType = shipType;
         this.customerUA = ua;
         this.package_id = ++id;
+        this.itemList = new ItemList();
     }
     
     public float getShippingPrice() {

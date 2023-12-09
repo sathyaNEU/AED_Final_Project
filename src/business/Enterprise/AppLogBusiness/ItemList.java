@@ -13,6 +13,11 @@ import java.util.ArrayList;
 public class ItemList {
     ArrayList<Item> itemList;
 
+    public ItemList() {
+        this.itemList = new ArrayList<>();
+    }
+    
+
     public ArrayList<Item> getItemList() {
         return itemList;
     }

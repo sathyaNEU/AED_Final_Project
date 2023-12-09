@@ -14,7 +14,6 @@ public class sItemList {
     public static ArrayList<Item> staticItemList;
 
     static {
-        System.out.println("called");
         staticItemList = new ArrayList<>();
         Item i1 = new Item();
         i1.setItem("Sweets");

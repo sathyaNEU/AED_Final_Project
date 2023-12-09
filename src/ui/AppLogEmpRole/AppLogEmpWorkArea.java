@@ -34,6 +34,7 @@ public class AppLogEmpWorkArea extends javax.swing.JPanel {
         this.account = account;
         this.organization = organization;
         this.business = business;
+        populateTable();
     }
 
     /**
