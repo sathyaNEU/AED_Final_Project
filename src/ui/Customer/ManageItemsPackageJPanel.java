@@ -13,6 +13,8 @@ import business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import ErrorHelper.ErrorHelper;
+import java.awt.CardLayout;
+import java.util.ArrayList;
 
 /**
  *
@@ -28,15 +30,16 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
     Organization organization;
     Business business;
     Pkg pkg;
+    ArrayList<Item> tempItems;
 
     public ManageItemsPackageJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
         initComponents();
-        populatePkgCB();
-        populateItemsCB();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.organization = organization;
         this.business = business;
+        populatePkgCB();
+        populateItemsCB();
     }
 
     /**
@@ -55,9 +58,10 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
         itemCmbBox = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         itemsTbl = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        removeBtn = new javax.swing.JButton();
+        saveBtn = new javax.swing.JButton();
         addBtn = new javax.swing.JButton();
+        backBtn2 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Manage Package Items");
@@ -90,17 +94,34 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(itemsTbl);
 
-        jButton1.setText("Remove");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        removeBtn.setText("Remove");
+        removeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                removeBtnActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setText("Push Request to Support Person");
+        saveBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        saveBtn.setText("Push Request to Support Person");
+        saveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveBtnActionPerformed(evt);
+            }
+        });
 
         addBtn.setText("Add");
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
+
+        backBtn2.setText("<< Back");
+        backBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtn2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -111,7 +132,7 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
+                            .addComponent(removeBtn)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
@@ -121,18 +142,29 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
                                         .addComponent(jLabel2)
                                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                                         .addComponent(pkgCmbBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGap(37, 37, 37)
-                                    .addComponent(addBtn)))))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(37, 37, 37)
+                                            .addComponent(addBtn)
+                                            .addGap(0, 217, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(backBtn2)))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(164, 164, 164)
-                        .addComponent(jButton2)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                        .addComponent(saveBtn)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backBtn2)))
                 .addGap(12, 12, 12)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -146,9 +178,9 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(removeBtn)
                 .addGap(36, 36, 36)
-                .addComponent(jButton2)
+                .addComponent(saveBtn)
                 .addContainerGap(138, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -156,31 +188,57 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
     private void pkgCmbBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pkgCmbBoxActionPerformed
         // TODO add your handling code here:
         this.pkg = (Pkg) this.pkgCmbBox.getSelectedItem();
+        this.tempItems = this.pkg.getItemList().getItemList();
         poulateItemsTbl(this.pkg);
     }//GEN-LAST:event_pkgCmbBoxActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel dtm = (DefaultTableModel) itemsTbl.getModel();
         int index  = this.itemsTbl.getSelectedRow();
+        Item item = (Item)this.itemsTbl.getValueAt(index, 0);
         if(index==-1)
             ErrorHelper.showWarning("A row must be selected");
         else{
-            
+            this.tempItems.remove(item);
+            poulateItemsTbl(this.pkg);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_removeBtnActionPerformed
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        // TODO add your handling code here:
+        Item item = (Item)this.itemCmbBox.getSelectedItem();
+        if(!this.tempItems.contains(item))
+            this.tempItems.add(item);
+        else
+            ErrorHelper.showWarning("Item already added");
+        poulateItemsTbl(pkg);
+    }//GEN-LAST:event_addBtnActionPerformed
+
+    private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_saveBtnActionPerformed
+
+    private void backBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtn2ActionPerformed
+        // TODO add your handling code here:
+        this.userProcessContainer.remove(this);
+        ((CardLayout)this.userProcessContainer.getLayout()).previous(userProcessContainer);
+    }//GEN-LAST:event_backBtn2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
+    private javax.swing.JButton backBtn2;
     private javax.swing.JComboBox itemCmbBox;
     private javax.swing.JTable itemsTbl;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox pkgCmbBox;
+    private javax.swing.JButton removeBtn;
+    private javax.swing.JButton saveBtn;
     // End of variables declaration//GEN-END:variables
 
     private void populatePkgCB() {
@@ -203,7 +261,8 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
     private void poulateItemsTbl(Pkg pkg) {
         DefaultTableModel dtm = (DefaultTableModel) itemsTbl.getModel();
         dtm.setRowCount(0);
-        for (Item item : pkg.getItemList().getItemList()) {
+        if(this.tempItems!=null)
+        for (Item item : this.tempItems) {
             Object[] obj = new Object[1];
             obj[0] = item;
             dtm.addRow(obj);

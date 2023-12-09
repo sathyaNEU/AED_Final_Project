@@ -10,6 +10,7 @@ import business.UserAccount.UserAccount;
 import business.WorkQueue.AssignEmpWorkRequest;
 import business.WorkQueue.LabTestWorkRequest;
 import business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Sathya
  */
-public class OrderHistoryJPanel extends javax.swing.JPanel {
+public class RequestHistoryJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form OrderHistoryJPanel
@@ -26,12 +27,13 @@ public class OrderHistoryJPanel extends javax.swing.JPanel {
     UserAccount account;
     Organization organization;
     Business business;
-    public OrderHistoryJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
+    public RequestHistoryJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.organization = organization;
         this.business = business;
+        populateRequestTable();
     }
 
     /**
@@ -47,6 +49,7 @@ public class OrderHistoryJPanel extends javax.swing.JPanel {
         tblWorkRequests = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         btnRefresh = new javax.swing.JButton();
+        backBtn2 = new javax.swing.JButton();
 
         tblWorkRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -86,6 +89,13 @@ public class OrderHistoryJPanel extends javax.swing.JPanel {
             }
         });
 
+        backBtn2.setText("<< Back");
+        backBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtn2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -99,17 +109,23 @@ public class OrderHistoryJPanel extends javax.swing.JPanel {
                         .addComponent(btnRefresh))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(113, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(backBtn2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(10, 10, 10)
+                .addComponent(backBtn2)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(btnRefresh))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(537, Short.MAX_VALUE))
+                .addContainerGap(489, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -119,8 +135,17 @@ public class OrderHistoryJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnRefreshActionPerformed
 
+    private void backBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtn2ActionPerformed
+        // TODO add your handling code here:
+        this.userProcessContainer.remove(this);
+        ((CardLayout)this.userProcessContainer.getLayout()).previous(userProcessContainer);
+    }//GEN-LAST:event_backBtn2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backBtn;
+    private javax.swing.JButton backBtn1;
+    private javax.swing.JButton backBtn2;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -129,7 +154,6 @@ public class OrderHistoryJPanel extends javax.swing.JPanel {
 
     private void populateRequestTable() {
         DefaultTableModel model = (DefaultTableModel) tblWorkRequests.getModel();
-        
         model.setRowCount(0);
         for (WorkRequest request : this.account.getWorkQueue().getWorkRequestList()){
             Object[] row = new Object[4];

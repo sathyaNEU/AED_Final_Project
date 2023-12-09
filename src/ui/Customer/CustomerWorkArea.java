@@ -107,13 +107,16 @@ public class CustomerWorkArea extends javax.swing.JPanel {
 
     private void orderHistoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderHistoryBtnActionPerformed
         // TODO add your handling code here:
-        OrderHistoryJPanel orderHistoryJPanel = new OrderHistoryJPanel(userProcessContainer, account, organization, business);
-        this.userProcessContainer.add("orderHistoryJPanel",orderHistoryJPanel);
+        RequestHistoryJPanel requestHistoryJPanel = new RequestHistoryJPanel(userProcessContainer, account, organization, business);
+        this.userProcessContainer.add("requestHistoryJPanel",requestHistoryJPanel);
         ((CardLayout)this.userProcessContainer.getLayout()).next(this.userProcessContainer);
     }//GEN-LAST:event_orderHistoryBtnActionPerformed
 
     private void orderHistoryBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderHistoryBtn1ActionPerformed
         // TODO add your handling code here:
+        ManageItemsPackageJPanel manageItemsPackageJPanel = new ManageItemsPackageJPanel(userProcessContainer, account, organization, business);
+        this.userProcessContainer.add("manageItemsPackageJPanel",manageItemsPackageJPanel);
+        ((CardLayout)this.userProcessContainer.getLayout()).next(this.userProcessContainer);        
     }//GEN-LAST:event_orderHistoryBtn1ActionPerformed
 
 
