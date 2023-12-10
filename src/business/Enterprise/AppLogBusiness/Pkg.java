@@ -26,9 +26,11 @@ public class Pkg {
     // 2-> Items added by customer
     // 3-> Items sent to packager
     // 4-> Items are packed
+    // 5-> Customers Inspection
+    // 6-> Customs are cleared
     // 6-> Cargo schedule booked
     // 7-> Items are sent to customs by log emp
-    // 8-> Customs are cleared
+
     // 9-> Delivered to Cargo
     // 10-> OG Admin Received
     // 11-> OG log emp assigned

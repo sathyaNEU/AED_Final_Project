@@ -10,17 +10,16 @@ import business.Enterprise.AppLogBusiness.Pkg;
  *
  * @author Sathya
  */
-public class AssignEmpWorkRequest extends WorkRequest{
+public class CustomsWorkRequest extends WorkRequest {
     Pkg pkg;
     String result;
-    PackingRequest nextRequest;
 
-    public PackingRequest getNextRequest() {
-        return nextRequest;
+    public Pkg getPkg() {
+        return pkg;
     }
 
-    public void setNextRequest(PackingRequest nextRequest) {
-        this.nextRequest = nextRequest;
+    public void setPkg(Pkg pkg) {
+        this.pkg = pkg;
     }
 
     public String getResult() {
@@ -30,13 +29,4 @@ public class AssignEmpWorkRequest extends WorkRequest{
     public void setResult(String result) {
         this.result = result;
     }
-
-    public Pkg getPkg() {
-        return pkg;
-    }
-
-    public void setPkg(Pkg pkg) {
-        this.pkg = pkg;
-    }
-    
 }

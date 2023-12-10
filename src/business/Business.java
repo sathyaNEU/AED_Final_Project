@@ -80,6 +80,15 @@ public class Business {
         }
         return null;
     }
+    
+        public Organization getAAOrganization() {
+        for (Organization org : getOrganizationDirectory().getOrganizationList()) {
+            if (org.getName().equals(Organization.Type.AA.getValue())) {
+                return org;
+            }
+        }
+        return null;
+    }
 
     public DailyPricingList getDailyPricingList() {
         return this.dailyPricingList;
