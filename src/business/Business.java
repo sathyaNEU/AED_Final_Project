@@ -71,6 +71,15 @@ public class Business {
         }
         return null;
     }
+    
+    public Organization getBusinessAdminOrganization() {
+        for (Organization org : getOrganizationDirectory().getOrganizationList()) {
+            if (org.getName().equals(Organization.Type.BusinessAdmin.getValue())) {
+                return org;
+            }
+        }
+        return null;
+    }
 
     public DailyPricingList getDailyPricingList() {
         return this.dailyPricingList;

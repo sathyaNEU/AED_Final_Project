@@ -24,9 +24,8 @@ public class Pkg {
     // 0-> req to assign log emp
     // 1-> log emp assigned
     // 2-> Items added by customer
-    // 3-> Items reviewed by log emp
-    // 4-> Items sent to packager
-    // 5-> Items are packed
+    // 3-> Items sent to packager
+    // 4-> Items are packed
     // 6-> Cargo schedule booked
     // 7-> Items are sent to customs by log emp
     // 8-> Customs are cleared

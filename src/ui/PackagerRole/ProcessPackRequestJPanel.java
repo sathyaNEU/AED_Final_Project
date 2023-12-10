@@ -1,8 +1,8 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.AppLogEmpRole;
+package ui.PackagerRole;
 
 import business.Business;
 import business.WorkQueue.AssignEmpWorkRequest;
@@ -15,18 +15,17 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author raunak
+ * @author Sathya
  */
-public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
-
-    JPanel userProcessContainer;
-    AssignEmpWorkRequest request;
-    Business business;
+public class ProcessPackRequestJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ProcessWorkRequestJPanel
+     * Creates new form ProcessPackRequestJPanel
      */
-    public ProcessWorkRequestJPanel(JPanel userProcessContainer, AssignEmpWorkRequest request, Business business) {
+    JPanel userProcessContainer;
+    PackingRequest request;
+    Business business;
+    public ProcessPackRequestJPanel(JPanel userProcessContainer, PackingRequest request, Business business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.request = request;
@@ -42,18 +41,19 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnSubmit = new javax.swing.JButton();
+        lblTitle = new javax.swing.JLabel();
+        btnSubmit2 = new javax.swing.JButton();
         lblResult = new javax.swing.JLabel();
         txtResults = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
-        lblTitle = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblTitle.setText("Result Submission");
 
-        btnSubmit.setText("Submit Result");
-        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+        btnSubmit2.setText("Submit Result");
+        btnSubmit2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubmitActionPerformed(evt);
+                btnSubmit2ActionPerformed(evt);
             }
         });
 
@@ -67,29 +67,26 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblTitle.setText("Result Submission");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblResult)
-                    .addComponent(btnSubmit)
+                    .addComponent(btnSubmit2)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnBack)
                         .addGap(33, 33, 33)
                         .addComponent(lblTitle))
                     .addComponent(txtResults, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(450, Short.MAX_VALUE))
+                .addContainerGap(350, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
                     .addComponent(lblTitle))
@@ -98,52 +95,39 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnSubmit)
-                .addContainerGap(269, Short.MAX_VALUE))
+                .addComponent(btnSubmit2)
+                .addContainerGap(180, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSubmit2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmit2ActionPerformed
+        
+        this.request.getPkg().setStatus(4);
+        this.request.setResolveDate(new Date());
+        this.request.setResult("Packed and sent back to the logistics enterprise");
+        this.request.getPrevReq().setResult("Packing Complete, in hold with logistic support team");
+        this.request.setStatus("Completed");
+        JOptionPane.showMessageDialog(this, "Request Resolved");
+        
+    }//GEN-LAST:event_btnSubmit2ActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        AppLogEmpWorkArea alewa = (AppLogEmpWorkArea) component;
-        alewa.populateTable();
+        PackagerWorkArea pwa = (PackagerWorkArea) component;
+        pwa.populateTable();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        if (request.getPkg().getStatus() == 0) {
-            request.setResult(txtResults.getText());
-            request.setResolveDate(new Date());
-            request.setStatus("Completed");
-            request.getPkg().setStatus(1);
-            JOptionPane.showMessageDialog(null, "Request processed");
-        } else if (request.getPkg().getStatus() == 2) {
-            PackingRequest packingRequest = new PackingRequest();
-            packingRequest.setPrevReq(request);
-            packingRequest.setPkg(request.getPkg());
-            packingRequest.setSender(request.getReceiver());
-            packingRequest.setStatus("Sent");
-            packingRequest.setMessage(request.getPkg());
-            packingRequest.setRequestDate(new Date());
-            request.getReceiver().getWorkQueue().getWorkRequestList().add(packingRequest);
-            this.business.getPackagingOrganization().getWorkQueue().getWorkRequestList().add(packingRequest);
-            JOptionPane.showMessageDialog(this, "Request forwarded to Packaging Organization");
-
-            request.setResult("Your Package is now being processed by the packaging agent");
-            request.setStatus("Completed");
-            request.getPkg().setStatus(3);
-        }
-
-    }//GEN-LAST:event_btnSubmitActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSubmit;
+    private javax.swing.JButton btnSubmit1;
+    private javax.swing.JButton btnSubmit2;
     private javax.swing.JLabel lblResult;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtResults;

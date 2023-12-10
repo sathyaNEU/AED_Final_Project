@@ -13,8 +13,13 @@ import business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import ErrorHelper.ErrorHelper;
+import business.WorkQueue.AssignEmpWorkRequest;
+import business.WorkQueue.PackingRequest;
+import business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -188,8 +193,10 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
     private void pkgCmbBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pkgCmbBoxActionPerformed
         // TODO add your handling code here:
         this.pkg = (Pkg) this.pkgCmbBox.getSelectedItem();
+        if(this.pkg!=null){
         this.tempItems = this.pkg.getItemList().getItemList();
         poulateItemsTbl(this.pkg);
+        }
     }//GEN-LAST:event_pkgCmbBoxActionPerformed
 
     private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
@@ -217,6 +224,22 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         // TODO add your handling code here:
+        boolean isExist = checkAnyOpenReqExist();
+        if(!isExist){
+        this.pkg.setStatus(2);
+        AssignEmpWorkRequest assignEmpWorkRequest = new AssignEmpWorkRequest();
+        assignEmpWorkRequest.setPkg(pkg);
+        assignEmpWorkRequest.setSender(account);
+        assignEmpWorkRequest.setStatus("Sent");
+        assignEmpWorkRequest.setMessage("Request to Pack");
+        assignEmpWorkRequest.setRequestDate(new Date());
+        this.account.getWorkQueue().getWorkRequestList().add(assignEmpWorkRequest);
+        this.business.getAppLogEmpOrganization().getWorkQueue().getWorkRequestList().add(assignEmpWorkRequest);
+        JOptionPane.showMessageDialog(this, "A request has been sent to the concerned team\nYou will be assigned an Logistic Support Person very soon\nHope you have a good experience");
+        }
+        else{
+            ErrorHelper.showError("One of our representatives will look into your\nrequest. Thanks for your patience");
+        }
         
     }//GEN-LAST:event_saveBtnActionPerformed
 
@@ -242,12 +265,14 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populatePkgCB() {
+        System.out.println("called 1st");
         this.pkgCmbBox.removeAllItems();
         for (Pkg pkg : this.business.getPackageList().getPackageList()) {
             if (pkg.getCustomerUA().equals(this.account) && pkg.getStatus() == 1) {
                 this.pkgCmbBox.addItem(pkg);
             }
         }
+        this.pkg = (Pkg) this.pkgCmbBox.getSelectedItem();
 
     }
 
@@ -268,4 +293,15 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
             dtm.addRow(obj);
         }
     }
+
+    private boolean checkAnyOpenReqExist() {
+        for(WorkRequest workRequest : this.account.getWorkQueue().getWorkRequestList()){
+            if(workRequest.getStatus().equalsIgnoreCase("Pending") ||
+               workRequest.getStatus().equalsIgnoreCase("Processing")||
+               workRequest.getStatus().equalsIgnoreCase("Sent"))
+                return true;
+        }
+        return false;
+    }
+    
 }
