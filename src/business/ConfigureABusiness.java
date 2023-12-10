@@ -12,6 +12,7 @@ import business.Enterprise.AppLogBusiness.sItemList;
 import business.Organization.AdminOrganization;
 import business.Organization.CustomerOrganization;
 import business.Organization.Organization;
+import business.Role.AARole;
 import business.Role.AdminRole;
 import business.Role.AppLogEmpRole;
 import business.Role.BusinessAdminRole;
@@ -75,6 +76,17 @@ public class ConfigureABusiness {
         account3.setEmployee(employee3);
         LogEmpOrg.getEmployeeDirectory().getEmployeeList().add(employee3);
         LogEmpOrg.getUserAccountDirectory().getUserAccountList().add(account3);
+        
+        Organization AAOrg = business.getOrganizationDirectory().createOrganization(Organization.Type.AA); 
+        Employee employee4 = new Employee();
+        employee4.setName("Ronald Trump");
+        UserAccount account4 = new UserAccount();
+        account4.setUsername("aa");
+        account4.setPassword("aA123456");
+        account4.setRole(new AARole());
+        account4.setEmployee(employee4);
+        AAOrg.getEmployeeDirectory().getEmployeeList().add(employee4);
+        AAOrg.getUserAccountDirectory().getUserAccountList().add(account4);
 
         
         DailyPricingList dailyPricingList = new DailyPricingList();

@@ -129,7 +129,7 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
             packingRequest.setPkg(request.getPkg());
             packingRequest.setSender(request.getReceiver());
             packingRequest.setStatus("Sent");
-            packingRequest.setMessage(request.getPkg());
+            packingRequest.setMessage("CONFIGURE");
             packingRequest.setRequestDate(new Date());
             request.getReceiver().getWorkQueue().getWorkRequestList().add(packingRequest);
             this.business.getPackagingOrganization().getWorkQueue().getWorkRequestList().add(packingRequest);

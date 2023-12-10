@@ -286,7 +286,7 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
         assignEmpWorkRequest.setPkg(pkg);
         assignEmpWorkRequest.setSender(account);
         assignEmpWorkRequest.setStatus("Sent");
-        assignEmpWorkRequest.setMessage(this.pkg);
+        assignEmpWorkRequest.setMessage("Executive Assignment Request");
         assignEmpWorkRequest.setRequestDate(new Date());
         this.account.getWorkQueue().getWorkRequestList().add(assignEmpWorkRequest);
         this.business.getAppLogEmpOrganization().getWorkQueue().getWorkRequestList().add(assignEmpWorkRequest);

@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public abstract class WorkRequest {
 
-    private Object message;
+    private String message;
     private UserAccount sender;
     private UserAccount receiver;
     private String status;
@@ -28,7 +28,7 @@ public abstract class WorkRequest {
         return message;
     }
 
-    public void setMessage(Object message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 

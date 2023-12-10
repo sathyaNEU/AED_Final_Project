@@ -30,6 +30,7 @@ public class ManageAppSubEmpPanel extends javax.swing.JPanel {
     UserAccount account;
     Organization organization;
     Business business;
+    Organization selectedOrg;
 
     public ManageAppSubEmpPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
         initComponents();
@@ -207,6 +208,8 @@ public class ManageAppSubEmpPanel extends javax.swing.JPanel {
 
     private void orgCmbBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgCmbBoxActionPerformed
         // TODO add your handling code here:
+       this.selectedOrg = (Organization)this.orgCmbBox.getSelectedItem();
+       populateTable();
     }//GEN-LAST:event_orgCmbBoxActionPerformed
 
 
@@ -228,7 +231,7 @@ public class ManageAppSubEmpPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
         model.setRowCount(0);
         for (Organization org : this.business.getOrganizationDirectory().getOrganizationList()) {
-            if (org.getName().equals("Packaging Organization") || org.getName().equals("Logistics Employees Organization")) {
+            if (org.equals(this.selectedOrg)) {
                 for (Employee employee : org.getEmployeeDirectory().getEmployeeList()) {
                     Object[] row = new Object[2];
                     row[0] = employee.getId();

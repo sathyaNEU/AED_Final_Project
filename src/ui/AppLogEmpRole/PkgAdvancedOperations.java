@@ -133,8 +133,10 @@ public class PkgAdvancedOperations extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        if(this.pkg.getStatus()==4){
         CustomsWorkRequest customsWorkRequest = new CustomsWorkRequest();
         customsWorkRequest.setSender(account);
+        customsWorkRequest.setStatus("Sent");
         customsWorkRequest.setMessage("Requesting for Custom Clearance");
         customsWorkRequest.setRequestDate(new Date());
         customsWorkRequest.setPkg(this.pkg);
@@ -142,6 +144,9 @@ public class PkgAdvancedOperations extends javax.swing.JPanel {
         this.business.getAAOrganization().getWorkQueue().getWorkRequestList().add(customsWorkRequest);
         this.account.getWorkQueue().getWorkRequestList().add(customsWorkRequest);
         JOptionPane.showMessageDialog(this, "Work Request Sent");
+        }
+        else
+            ErrorHelper.ErrorHelper.showError("The package is not authorized to move forward");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed

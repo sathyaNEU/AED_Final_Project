@@ -7,6 +7,7 @@ package ui.AARole;
 import business.Business;
 import business.Organization.Organization;
 import business.UserAccount.UserAccount;
+import business.WorkQueue.CustomsWorkRequest;
 import business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -52,7 +53,6 @@ public class AAWorkArea extends javax.swing.JPanel {
         btnAssign = new javax.swing.JButton();
         btnProcess = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblTitle.setText("Airport Authority ( CUSTOMS ) Support Work Area");
@@ -113,39 +113,32 @@ public class AAWorkArea extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Advanced >>");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(64, 64, 64)
                                 .addComponent(lblTitle)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(214, 214, 214)
                                 .addComponent(btnRefresh))
                             .addComponent(btnBack2)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnAssign)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnProcess)
-                                .addGap(32, 32, 32)
-                                .addComponent(jButton1))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnAssign)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnProcess)
+                        .addGap(300, 300, 300)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,8 +154,7 @@ public class AAWorkArea extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAssign)
-                    .addComponent(btnProcess)
-                    .addComponent(jButton1))
+                    .addComponent(btnProcess))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -201,14 +193,13 @@ public class AAWorkArea extends javax.swing.JPanel {
         int selectedRow = tblWorkRequests.getSelectedRow();
 
         if (selectedRow >= 0) {
-//            AssignEmpWorkRequest request = (AssignEmpWorkRequest) tblWorkRequests.getValueAt(selectedRow, 0);
-//
-//            request.setStatus("Processing");
-//
-//            ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, request, this.business);
-//            userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
-//            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//            layout.next(userProcessContainer);
+            CustomsWorkRequest request = (CustomsWorkRequest) tblWorkRequests.getValueAt(selectedRow, 0);
+
+            request.setStatus("Processing");
+            ValidateItemsJPanel validateItemsJPanel = new ValidateItemsJPanel(userProcessContainer, account, organization, business, request);
+            userProcessContainer.add("validateItemsJPanel", validateItemsJPanel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
 
         } else {
             JOptionPane.showMessageDialog(null, "Please select a request message to process.");
@@ -219,22 +210,12 @@ public class AAWorkArea extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_btnRefreshActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = tblWorkRequests.getSelectedRow();
-
-        if (selectedRow >= 0) {
-           return;
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssign;
     private javax.swing.JButton btnBack2;
     private javax.swing.JButton btnProcess;
     private javax.swing.JButton btnRefresh;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblWorkRequests;

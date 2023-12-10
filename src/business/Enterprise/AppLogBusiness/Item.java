@@ -10,7 +10,7 @@ package business.Enterprise.AppLogBusiness;
  */
 public class Item {
     String item;
-    boolean status;
+    String status;
     
     public String getItem() {
         return item;
@@ -20,11 +20,11 @@ public class Item {
         this.item = item;
     }
 
-    public boolean getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
     

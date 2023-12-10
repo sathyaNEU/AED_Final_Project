@@ -231,7 +231,7 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
         assignEmpWorkRequest.setPkg(pkg);
         assignEmpWorkRequest.setSender(account);
         assignEmpWorkRequest.setStatus("Sent");
-        assignEmpWorkRequest.setMessage("Request to Pack");
+        assignEmpWorkRequest.setMessage("Packing request initiated");
         assignEmpWorkRequest.setRequestDate(new Date());
         this.account.getWorkQueue().getWorkRequestList().add(assignEmpWorkRequest);
         this.business.getAppLogEmpOrganization().getWorkQueue().getWorkRequestList().add(assignEmpWorkRequest);
