@@ -290,7 +290,12 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     private void btnCreateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateUserActionPerformed
         String userName = txtUserName.getText();
         String password = txtPassword.getText();
-        Organization organization = (Organization) cmbOrganization.getSelectedItem();
+        int res = validateCredentials( userName, password);       
+         if (res == -1)
+            JOptionPane.showMessageDialog(this, "Username or password cannot be empty", "ERROR", JOptionPane.ERROR_MESSAGE);
+        else {
+            if(validatePwd(password)){
+                 Organization organization = (Organization) cmbOrganization.getSelectedItem();
         Employee employee = (Employee) cmbEmployee.getSelectedItem();
         Role role = (Role) cmbRoles.getSelectedItem();
         UserAccount userAccount = organization.getUserAccountDirectory().createUserAccount(userName, password, employee, role);
@@ -302,6 +307,11 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             txtUserName.setText("");
             txtPassword.setText("");  
         }      
+            }
+            else
+               JOptionPane.showMessageDialog(this, "Password must contain alteast 8 characters, one upper case\none lower case and one digit", "WARNING", JOptionPane.WARNING_MESSAGE);
+        }
+         
     }//GEN-LAST:event_btnCreateUserActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -343,4 +353,25 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
+
+private int validateCredentials(String userName, String password) {
+
+        if (userName.isBlank() || password.isBlank()) {
+            return -1;
+        } else {
+            return 1;
+        }
+    }
+
+    private boolean validatePwd(String pwd) {
+        return pwd.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$");
+
+    }
+
+
+
+
+
+
+
 }
