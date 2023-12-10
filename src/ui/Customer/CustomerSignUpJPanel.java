@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package ui.Customer;
+
 import ErrorHelper.ErrorHelper;
 import business.Business;
 import business.Employee.Employee;
@@ -24,10 +25,11 @@ public class CustomerSignUpJPanel extends javax.swing.JPanel {
      */
     JPanel mainWorkArea;
     Business business;
+
     public CustomerSignUpJPanel(JPanel mainWorkArea, Business business) {
         initComponents();
         this.mainWorkArea = mainWorkArea;
-        this.business = business;       
+        this.business = business;
     }
 
     /**
@@ -132,28 +134,35 @@ public class CustomerSignUpJPanel extends javax.swing.JPanel {
     private void signUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpBtnActionPerformed
         // TODO add your handling code here:
         String name = this.nameTextField.getText();
-        String username =this.UserNameTextField.getText();
+        String username = this.UserNameTextField.getText();
         String pwd = this.pwdTextField.getText();
-        if(name.isBlank() || username.isBlank() || pwd.isBlank()){
+        if (name.isBlank() || username.isBlank() || pwd.isBlank()) {
             ErrorHelper.showError("Name, UserName or Password Field is Empty");
-        }
-        else{
-            if(this.business.getCustomerOrganization()==null){
-                ErrorHelper.showError("Org not found");
+        } else {
+            if (validatePwd(pwd)) {
+                if (this.business.getCustomerOrganization() == null) {
+                    ErrorHelper.showError("Org not found");
+                } else {
+                    Employee emp = this.business.getCustomerOrganization().getEmployeeDirectory().createEmployee(name);
+                    Role role = this.business.getCustomerOrganization().getSupportedRole().get(0);
+                    UserAccount ua = this.business.getCustomerOrganization().getUserAccountDirectory().createUserAccount(username, pwd, emp, role);
+                    JOptionPane.showMessageDialog(this, "User created Successfully");
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Password must contain alteast 8 characters, one upper case\none lower case and one digit", "WARNING", JOptionPane.WARNING_MESSAGE);
             }
-            else{
-            Employee emp =  this.business.getCustomerOrganization().getEmployeeDirectory().createEmployee(name);
-            Role role = this.business.getCustomerOrganization().getSupportedRole().get(0);
-            UserAccount ua = this.business.getCustomerOrganization().getUserAccountDirectory().createUserAccount(username, pwd, emp, role);
-            JOptionPane.showMessageDialog(this, "User created Successfully");  
-        }
+
         }
     }//GEN-LAST:event_signUpBtnActionPerformed
+    private boolean validatePwd(String pwd) {
+        return pwd.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$");
+
+    }
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         this.mainWorkArea.remove(this);
-        ((CardLayout)this.mainWorkArea.getLayout()).previous(mainWorkArea);
+        ((CardLayout) this.mainWorkArea.getLayout()).previous(mainWorkArea);
     }//GEN-LAST:event_backBtnActionPerformed
 
 
