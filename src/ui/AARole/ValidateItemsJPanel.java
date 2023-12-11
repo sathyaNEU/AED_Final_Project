@@ -64,32 +64,43 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         itemsTbl = new javax.swing.JTable();
         rejectbtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("CUSTOMS WORK RESPONSIBILITY");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
 
-        btnBack2.setText("<< Back");
+        btnBack2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnBack2.setText("<< BACK");
         btnBack2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBack2ActionPerformed(evt);
             }
         });
+        add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
-        saveBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        saveBtn.setText("Push Response to Logistics Enterprise");
+        saveBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        saveBtn.setText("PUSH RESPONSE TO LOGISTICS ENTERPRISE");
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveBtnActionPerformed(evt);
             }
         });
+        add(saveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 530, -1, 40));
 
-        acceptBtn.setText("Accept");
+        acceptBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        acceptBtn.setText("ACCEPT");
         acceptBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 acceptBtnActionPerformed(evt);
             }
         });
+        add(acceptBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, -1, 40));
 
+        itemsTbl.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         itemsTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -103,54 +114,19 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(itemsTbl);
 
-        rejectbtn.setText("Reject");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 190, 560, 180));
+
+        rejectbtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        rejectbtn.setText("REJECT");
         rejectbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rejectbtnActionPerformed(evt);
             }
         });
+        add(rejectbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, -1, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnBack2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitle)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(199, 199, 199)
-                        .addComponent(acceptBtn)
-                        .addGap(18, 18, 18)
-                        .addComponent(rejectbtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(saveBtn)))
-                .addContainerGap(302, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBack2)
-                .addGap(18, 18, 18)
-                .addComponent(lblTitle)
-                .addGap(35, 35, 35)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(acceptBtn)
-                    .addComponent(rejectbtn))
-                .addGap(39, 39, 39)
-                .addComponent(saveBtn)
-                .addContainerGap(467, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AARole/Background.jpg"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1530, 1110));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
@@ -205,6 +181,7 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton acceptBtn;
     private javax.swing.JButton btnBack2;
     private javax.swing.JTable itemsTbl;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JButton rejectbtn;

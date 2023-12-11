@@ -37,41 +37,49 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         manageEmployeeJButton = new javax.swing.JButton();
         manageOrganizationJButton = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setLayout(null);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        userJButton.setText("Manage Users");
+        userJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        userJButton.setText("MANAGE USERS");
         userJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userJButtonActionPerformed(evt);
             }
         });
-        add(userJButton);
-        userJButton.setBounds(37, 158, 159, 23);
+        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 270, 50));
 
-        manageEmployeeJButton.setText("Manage Employees");
+        manageEmployeeJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        manageEmployeeJButton.setText("MANAGE EMPLOYEES");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageEmployeeJButtonActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton);
-        manageEmployeeJButton.setBounds(37, 117, 159, 23);
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 270, 50));
 
-        manageOrganizationJButton.setText("Manage Organizations");
+        manageOrganizationJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        manageOrganizationJButton.setText("MANAGE ORGANIZATIONS");
         manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
-        add(manageOrganizationJButton);
-        manageOrganizationJButton.setBounds(37, 76, 159, 23);
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 270, 50));
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblTitle.setText("Administrative Work Area");
-        add(lblTitle);
-        lblTitle.setBounds(37, 29, 170, 16);
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("ADMINISTRATIVE WORK AREA");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 390, 50));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AdministrativeRole/adminworkarea.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 380, 340));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AdministrativeRole/Background.jpg"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 1100));
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
@@ -103,6 +111,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JButton manageEmployeeJButton;
     private javax.swing.JButton manageOrganizationJButton;

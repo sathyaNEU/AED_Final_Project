@@ -47,82 +47,62 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
         manageOrganizationJButton = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         managePriceBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        manageEmpBtn2.setText("Manage Employees");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        manageEmpBtn2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        manageEmpBtn2.setText("MANAGE EMPLOYEES");
         manageEmpBtn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageEmpBtn2ActionPerformed(evt);
             }
         });
+        add(manageEmpBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 260, 50));
 
-        btnBack.setText("<< Back");
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnBack.setText("<< BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
-        userJButton.setText("Manage Users");
+        userJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        userJButton.setText("MANAGE USERS");
         userJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userJButtonActionPerformed(evt);
             }
         });
+        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 260, 50));
 
-        manageOrganizationJButton.setText("Manage Organizations");
+        manageOrganizationJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        manageOrganizationJButton.setText("MANAGE ORGANIZATIONS");
         manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, 50));
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblTitle.setText("Business Admin Work Area");
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("BUSINESS ADMIN WORK AREA");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 390, 40));
 
-        managePriceBtn.setText("Manage Pricing");
+        managePriceBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        managePriceBtn.setText("MANAGE PRICING");
         managePriceBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 managePriceBtnActionPerformed(evt);
             }
         });
+        add(managePriceBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 260, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitle)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(managePriceBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(userJButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(manageEmpBtn2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(manageOrganizationJButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnBack)))
-                .addContainerGap(555, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBack)
-                .addGap(32, 32, 32)
-                .addComponent(lblTitle)
-                .addGap(18, 18, 18)
-                .addComponent(manageOrganizationJButton)
-                .addGap(18, 18, 18)
-                .addComponent(manageEmpBtn2)
-                .addGap(18, 18, 18)
-                .addComponent(userJButton)
-                .addGap(18, 18, 18)
-                .addComponent(managePriceBtn)
-                .addContainerGap(564, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/BusinessAdmin/Background.jpg"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 1100));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageEmpBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmpBtn2ActionPerformed
@@ -166,6 +146,7 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JButton manageEmpBtn2;
     private javax.swing.JButton manageOrganizationJButton;

@@ -77,13 +77,13 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setText("Manage Employees");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 240, 30));
+        lblTitle.setText("MANAGE EMPLOYEES");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 270, 40));
 
-        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnBack.setText("<< Back");
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnBack.setText("<< BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -91,10 +91,10 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 33, -1, -1));
 
-        lblOrganizationPicker.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblOrganizationPicker.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblOrganizationPicker.setForeground(new java.awt.Color(255, 255, 255));
-        lblOrganizationPicker.setText("Select Organization:");
-        add(lblOrganizationPicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
+        lblOrganizationPicker.setText("SELECT ORGANIZATION:");
+        add(lblOrganizationPicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, 30));
 
         cmbOrganizationList.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         cmbOrganizationList.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -103,7 +103,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
                 cmbOrganizationListActionPerformed(evt);
             }
         });
-        add(cmbOrganizationList, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, 231, -1));
+        add(cmbOrganizationList, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, 231, 40));
 
         tblEmployees.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         tblEmployees.setModel(new javax.swing.table.DefaultTableModel(
@@ -139,36 +139,36 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
             tblEmployees.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 500, 180));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 540, 200));
 
-        lblEmployeeList.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblEmployeeList.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblEmployeeList.setForeground(new java.awt.Color(255, 255, 255));
-        lblEmployeeList.setText("Employee List:");
-        add(lblEmployeeList, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, -1, 50));
+        lblEmployeeList.setText("EMPLOYEE LIST:");
+        add(lblEmployeeList, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 170, 50));
 
-        lblOrganizationList1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblOrganizationList1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblOrganizationList1.setForeground(new java.awt.Color(255, 255, 255));
-        lblOrganizationList1.setText("New Employee:");
-        add(lblOrganizationList1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, -1, -1));
+        lblOrganizationList1.setText("NEW EMPLOYEE:");
+        add(lblOrganizationList1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, 160, 30));
 
-        lblEmployeeName.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblEmployeeName.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblEmployeeName.setForeground(new java.awt.Color(255, 255, 255));
-        lblEmployeeName.setText("Name:");
-        add(lblEmployeeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, -1, -1));
+        lblEmployeeName.setText("NAME:");
+        add(lblEmployeeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 540, 70, -1));
 
         txtEmployeeName.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        add(txtEmployeeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 430, 201, -1));
+        add(txtEmployeeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 530, 201, 40));
 
-        btnCreateEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnCreateEmployee.setText("Create Employee");
+        btnCreateEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnCreateEmployee.setText("CREATE EMPLOYEE");
         btnCreateEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateEmployeeActionPerformed(evt);
             }
         });
-        add(btnCreateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, -1, -1));
+        add(btnCreateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 640, 220, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AdministrativeRole/login.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AdministrativeRole/Background.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1500, 1120));
     }// </editor-fold>//GEN-END:initComponents

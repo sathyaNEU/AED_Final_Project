@@ -100,10 +100,10 @@ public class LoginScreen extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/loginimg.png"))); // NOI18N
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 230, 240));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/background.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/Background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
         jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -20, 1510, 1120));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1500, 1120));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed

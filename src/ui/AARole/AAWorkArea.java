@@ -53,21 +53,25 @@ public class AAWorkArea extends javax.swing.JPanel {
         btnAssign = new javax.swing.JButton();
         btnProcess = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblTitle.setText("Airport Authority ( CUSTOMS ) Support Work Area");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 61, -1, -1));
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("AIRPORT AUTHORITY ( CUSTOMS ) SUPPORT WORK AREA");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
 
-        btnBack2.setText("<< Back");
+        btnBack2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnBack2.setText("<< BACK");
         btnBack2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBack2ActionPerformed(evt);
             }
         });
-        add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+        add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 110, 30));
 
+        tblWorkRequests.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         tblWorkRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -96,31 +100,37 @@ public class AAWorkArea extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblWorkRequests);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 112, 623, 171));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 680, 220));
 
-        btnAssign.setText("Assign to me");
+        btnAssign.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnAssign.setText("ASSIGN TO ME");
         btnAssign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignActionPerformed(evt);
             }
         });
-        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 301, -1, -1));
+        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 170, 40));
 
-        btnProcess.setText("Process");
+        btnProcess.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnProcess.setText("PROCESS");
         btnProcess.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProcessActionPerformed(evt);
             }
         });
-        add(btnProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 301, -1, -1));
+        add(btnProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 460, 120, 40));
 
-        btnRefresh.setText("Refresh");
+        btnRefresh.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnRefresh.setText("REFRESH");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshActionPerformed(evt);
             }
         });
-        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(612, 58, -1, -1));
+        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 140, 120, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AARole/Background.jpg"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 1100));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
@@ -180,6 +190,7 @@ public class AAWorkArea extends javax.swing.JPanel {
     private javax.swing.JButton btnBack2;
     private javax.swing.JButton btnProcess;
     private javax.swing.JButton btnRefresh;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblWorkRequests;

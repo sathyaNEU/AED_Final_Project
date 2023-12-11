@@ -94,11 +94,12 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         lblUsersList = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblUsers.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -128,10 +129,11 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
             tblUsers.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 331, 296));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 360, 330));
 
         grpNewUser.setBackground(new java.awt.Color(255, 255, 255));
 
+        btnCreateUser.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnCreateUser.setText("Create");
         btnCreateUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,12 +141,18 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblUserName.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblUserName.setText("User Name:");
 
+        lblPassword.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblPassword.setText("Password:");
 
+        txtPassword.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+
+        lblEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblEmployee.setText("Employee:");
 
+        cmbEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         cmbEmployee.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,15 +160,21 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblOrganization.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblOrganization.setText("Organization:");
 
+        lblRole.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblRole.setText("Role:");
 
+        cmbRoles.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         cmbRoles.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblCreateUser.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblCreateUser.setText("New User:");
+        lblCreateUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblCreateUser.setText("NEW USER:");
 
+        txtUserName.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+
+        orgCmbBox.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         orgCmbBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         orgCmbBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,28 +189,35 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
             .addGroup(grpNewUserLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(grpNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(grpNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(grpNewUserLayout.createSequentialGroup()
-                            .addComponent(lblEmployee)
-                            .addGap(18, 18, 18)
-                            .addComponent(cmbEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(grpNewUserLayout.createSequentialGroup()
-                            .addGroup(grpNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblUserName)
-                                .addComponent(lblRole)
-                                .addComponent(lblPassword))
-                            .addGap(18, 18, 18)
-                            .addGroup(grpNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cmbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnCreateUser)
-                                .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(lblCreateUser)
                     .addGroup(grpNewUserLayout.createSequentialGroup()
-                        .addComponent(lblOrganization)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(orgCmbBox, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(grpNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(grpNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(grpNewUserLayout.createSequentialGroup()
+                                    .addGap(36, 36, 36)
+                                    .addComponent(lblRole))
+                                .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(lblUserName, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(grpNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(grpNewUserLayout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addComponent(cmbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(grpNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                                .addComponent(txtUserName, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(btnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(grpNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(grpNewUserLayout.createSequentialGroup()
+                            .addGap(7, 7, 7)
+                            .addComponent(lblEmployee)
+                            .addGap(18, 18, 18)
+                            .addComponent(cmbEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, grpNewUserLayout.createSequentialGroup()
+                            .addComponent(lblOrganization)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(orgCmbBox, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         grpNewUserLayout.setVerticalGroup(
             grpNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,42 +235,45 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
                 .addGroup(grpNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRole)
                     .addComponent(cmbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(59, 59, 59)
                 .addGroup(grpNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUserName)
-                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUserName))
+                .addGroup(grpNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(grpNewUserLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblPassword))
+                    .addGroup(grpNewUserLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(grpNewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnCreateUser)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addComponent(btnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        add(grpNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, -1, -1));
+        add(grpNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, 360, 330));
 
-        btnBack.setText("<< Back");
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnBack.setText("<< BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 51, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setText("Manage Users");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 110, 30));
+        lblTitle.setText("MANAGE USERS");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 260, 30));
 
-        lblUsersList.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblUsersList.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblUsersList.setForeground(new java.awt.Color(255, 255, 255));
         lblUsersList.setText("Users List:");
-        add(lblUsersList, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 80, 30));
+        add(lblUsersList, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 110, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/BusinessAdmin/login.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-84, -20, 2390, 1120));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/BusinessAdmin/Background.jpg"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 1100));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateUserActionPerformed
@@ -309,7 +333,7 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox cmbEmployee;
     private javax.swing.JComboBox cmbRoles;
     private javax.swing.JPanel grpNewUser;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCreateUser;
     private javax.swing.JLabel lblEmployee;

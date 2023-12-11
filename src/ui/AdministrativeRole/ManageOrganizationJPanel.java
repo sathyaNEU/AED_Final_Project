@@ -120,28 +120,28 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             tblOrganizations.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 480, 120));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 570, 180));
 
-        btnAdd.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnAdd.setText("Add");
+        btnAdd.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnAdd.setText("ADD");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
-        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, 87, -1));
+        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 700, 110, 40));
 
-        cmbOrganizations.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        cmbOrganizations.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         cmbOrganizations.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(cmbOrganizations, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 167, -1));
+        add(cmbOrganizations, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 580, 250, 40));
 
-        lblSelectOrgType.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblSelectOrgType.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblSelectOrgType.setForeground(new java.awt.Color(255, 255, 255));
-        lblSelectOrgType.setText("Select Organization Type:");
-        add(lblSelectOrgType, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, -1));
+        lblSelectOrgType.setText("SELECT ORGANIZATION TYPE:");
+        add(lblSelectOrgType, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 580, -1, 40));
 
-        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnBack.setText("<< Back");
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnBack.setText("<< BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -149,22 +149,22 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 36, -1, -1));
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setText("Manage Organizations");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, -1, 30));
+        lblTitle.setText("MANAGE ORGANIZATIONS");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 330, 60));
 
-        lblOrganizationList.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblOrganizationList.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblOrganizationList.setForeground(new java.awt.Color(255, 255, 255));
-        lblOrganizationList.setText("Organization List:");
-        add(lblOrganizationList, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, -1));
+        lblOrganizationList.setText("ORGANIZATION LIST:");
+        add(lblOrganizationList, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, 210, -1));
 
-        lblOrganizationAdd.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblOrganizationAdd.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblOrganizationAdd.setForeground(new java.awt.Color(255, 255, 255));
-        lblOrganizationAdd.setText("Add Organization:");
-        add(lblOrganizationAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
+        lblOrganizationAdd.setText("ADD ORGANIZATION:");
+        add(lblOrganizationAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 220, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AdministrativeRole/login.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AdministrativeRole/Background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 1500, 1160));
     }// </editor-fold>//GEN-END:initComponents

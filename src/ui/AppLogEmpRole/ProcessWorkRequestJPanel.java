@@ -50,60 +50,44 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         txtResults = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnSubmit.setText("Submit Result");
+        btnSubmit.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnSubmit.setText("SUBMIT RESULT");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
             }
         });
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 180, 40));
 
-        lblResult.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblResult.setText("Result:");
+        lblResult.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblResult.setForeground(new java.awt.Color(255, 255, 255));
+        lblResult.setText("RESULT:");
+        add(lblResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 80, -1));
 
-        btnBack.setText("<< Back");
+        txtResults.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        add(txtResults, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 340, 40));
+
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnBack.setText("<< BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 43, -1, -1));
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblTitle.setText("Result Submission");
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("RESULT SUBMISSION");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 290, 60));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblResult)
-                    .addComponent(btnSubmit)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addGap(33, 33, 33)
-                        .addComponent(lblTitle))
-                    .addComponent(txtResults, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(450, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(lblTitle))
-                .addGap(76, 76, 76)
-                .addComponent(lblResult)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSubmit)
-                .addContainerGap(269, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AppLogEmpRole/Background.jpg"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 1100));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -147,6 +131,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSubmit;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblResult;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtResults;
