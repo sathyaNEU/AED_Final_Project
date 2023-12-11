@@ -11,9 +11,11 @@ import business.UserAccount.UserAccount;
 import business.WorkQueue.AssignEmpWorkRequest;
 import business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import ui.LoginScreen;
 
 /**
  *
@@ -28,13 +30,15 @@ public class AppLogEmpWorkArea extends javax.swing.JPanel {
     UserAccount account;
     Organization organization;
     Business business;
+    JPanel prevContainer;
 
-    public AppLogEmpWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
+    public AppLogEmpWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business,JPanel prevContainer) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.organization = organization;
         this.business = business;
+        this.prevContainer = prevContainer;
         populateTable();
     }
 
@@ -48,13 +52,14 @@ public class AppLogEmpWorkArea extends javax.swing.JPanel {
     private void initComponents() {
 
         lblTitle = new javax.swing.JLabel();
-        btnBack2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblWorkRequests = new javax.swing.JTable();
         btnAssign = new javax.swing.JButton();
         btnProcess = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        logoutBtn = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -63,15 +68,6 @@ public class AppLogEmpWorkArea extends javax.swing.JPanel {
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("LOGISTICS SUPPORT WORK AREA");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
-
-        btnBack2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        btnBack2.setText("<< Back");
-        btnBack2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBack2ActionPerformed(evt);
-            }
-        });
-        add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         tblWorkRequests.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         tblWorkRequests.setModel(new javax.swing.table.DefaultTableModel(
@@ -140,16 +136,22 @@ public class AppLogEmpWorkArea extends javax.swing.JPanel {
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, 160, 50));
 
+        logoutBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        logoutBtn.setText("LOGOUT");
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBtnActionPerformed(evt);
+            }
+        });
+        add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1330, 20, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AppLogEmpRole/Logistics.jpeg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 630, 480, 350));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AppLogEmpRole/Background.jpg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 1100));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
-
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBack2ActionPerformed
 
     private void btnAssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignActionPerformed
 
@@ -204,23 +206,35 @@ public class AppLogEmpWorkArea extends javax.swing.JPanel {
 
         if (selectedRow >= 0) {
             AssignEmpWorkRequest request = (AssignEmpWorkRequest) tblWorkRequests.getValueAt(selectedRow, 0);
-            PkgAdvancedOperations pao = new PkgAdvancedOperations(userProcessContainer, account, organization, business, request.getPkg());
+            PkgAdvancedOperations pao = new PkgAdvancedOperations(userProcessContainer, account, organization, business, request);
             userProcessContainer.add("pao", pao);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+        // TODO add your handling code here:
+
+        Component comp = this.prevContainer.getComponent(0);
+        LoginScreen ls = (LoginScreen)comp;
+        ls.clearContents();
+        this.userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_logoutBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssign;
-    private javax.swing.JButton btnBack2;
     private javax.swing.JButton btnProcess;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JButton logoutBtn;
     private javax.swing.JTable tblWorkRequests;
     // End of variables declaration//GEN-END:variables
 

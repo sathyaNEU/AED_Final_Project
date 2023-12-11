@@ -22,8 +22,8 @@ public class OGLogEmpRole extends Role{
     }
 
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
-        return new OGLogEmpWorkArea( userProcessContainer,  account, (OGLogEmpOrganization) organization,  business);
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business,JPanel prevContainer) {
+        return new OGLogEmpWorkArea( userProcessContainer,  account, (OGLogEmpOrganization) organization,  business, prevContainer);
     }
     
 }

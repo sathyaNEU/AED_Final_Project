@@ -4,6 +4,7 @@
  */
 package business.Enterprise.AppLogBusiness;
 
+import business.CargoEnterprise.AirlinesSchedule;
 import business.UserAccount.UserAccount;
 
 /**
@@ -11,7 +12,8 @@ import business.UserAccount.UserAccount;
  * @author Sathya
  */
 public class Pkg {
-    static int id=0;
+
+    static int id = 0;
     int package_id;
     UserAccount customerUA;
     ItemList itemList;
@@ -21,20 +23,21 @@ public class Pkg {
     float shippingPrice;
     String shipType;
     int status;
+    AirlinesSchedule schedule;
+    String recv_name;
+    String recv_address;
+    String recv_cno;
     // 0-> req to assign log emp
     // 1-> log emp assigned
     // 2-> Items added by customer
     // 3-> Items sent to packager
     // 4-> Items are packed
-    // 5-> Customers Inspection
+    // 5-> Customs Inspection
     // 6-> Customs are cleared
     // 7-> Cargo schedule booked
-    // 9-> Delivered to Cargo
-    // 10-> OG Admin Received
-    // 11-> OG log emp assigned
-    // 12-> OG log emp delivered
-    
-    
+    // 8-> OG Admin Received
+    // 9-> OG log emp assigned
+    // 10-> OG log emp delivered
 
     public int getStatus() {
         return status;
@@ -50,7 +53,7 @@ public class Pkg {
         this.package_id = ++id;
         this.itemList = new ItemList();
     }
-    
+
     public float getShippingPrice() {
         return shippingPrice;
     }
@@ -66,10 +69,9 @@ public class Pkg {
     public void setGst(float gst) {
         this.gst = gst;
     }
-    
-    public enum type{
-        
-        
+
+    public enum type {
+
     }
 
     public static int getId() {
@@ -101,16 +103,55 @@ public class Pkg {
     }
 
     public void setNetPrice() {
-        this.netPrice = this.shippingPrice*weight + gst;
+        this.netPrice = this.shippingPrice * weight + gst;
     }
 
     public int getPackage_id() {
         return package_id;
     }
-    
-    public String toString(){
-        return "Package ID : "+String.valueOf(this.getPackage_id());
+
+    public String toString() {
+        return "Package ID : " + String.valueOf(this.getPackage_id());
     }
-    
+
+    public AirlinesSchedule getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(AirlinesSchedule schedule) {
+        this.schedule = schedule;
+    }
+
+    public String getShipType() {
+        return shipType;
+    }
+
+    public void setShipType(String shipType) {
+        this.shipType = shipType;
+    }
+
+    public String getRecv_name() {
+        return recv_name;
+    }
+
+    public void setRecv_name(String recv_name) {
+        this.recv_name = recv_name;
+    }
+
+    public String getRecv_address() {
+        return recv_address;
+    }
+
+    public void setRecv_address(String recv_address) {
+        this.recv_address = recv_address;
+    }
+
+    public String getRecv_cno() {
+        return recv_cno;
+    }
+
+    public void setRecv_cno(String recv_cno) {
+        this.recv_cno = recv_cno;
+    }
     
 }

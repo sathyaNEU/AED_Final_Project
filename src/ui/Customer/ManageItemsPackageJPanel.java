@@ -36,6 +36,9 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
     Business business;
     Pkg pkg;
     ArrayList<Item> tempItems;
+    String recv_name;
+    String recv_address;
+    String recv_cno;
 
     public ManageItemsPackageJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
         initComponents();
@@ -66,14 +69,22 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
         removeBtn = new javax.swing.JButton();
         saveBtn = new javax.swing.JButton();
         addBtn = new javax.swing.JButton();
-        backBtn2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        rName = new javax.swing.JLabel();
+        rAddressTextField = new javax.swing.JTextField();
+        rNameTextField = new javax.swing.JTextField();
+        rContactTextField = new javax.swing.JTextField();
+        rName1 = new javax.swing.JLabel();
+        btnBack2 = new javax.swing.JButton();
+        rName2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        rName3 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Manage Package Items");
+        jLabel1.setText("MANAGE PACKAGE ITEMS");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, 31));
 
         pkgCmbBox.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -87,12 +98,12 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Package");
+        jLabel2.setText("PACKAGE");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Items");
+        jLabel3.setText("ITEMS");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 80, -1));
 
         itemCmbBox.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -122,16 +133,16 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
                 removeBtnActionPerformed(evt);
             }
         });
-        add(removeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, -1));
+        add(removeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, -1, -1));
 
         saveBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        saveBtn.setText("Push Request to Support Person");
+        saveBtn.setText(" PUSH REQUEST TO SUPPORT PERSON");
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveBtnActionPerformed(evt);
             }
         });
-        add(saveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 510, -1, -1));
+        add(saveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 550, -1, -1));
 
         addBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         addBtn.setText("Add");
@@ -140,39 +151,69 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
                 addBtnActionPerformed(evt);
             }
         });
-        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, -1));
+        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 480, -1, -1));
 
-        backBtn2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        backBtn2.setText("<< Back");
-        backBtn2.addActionListener(new java.awt.event.ActionListener() {
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("RECEIVER INFORMATION");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 240, 20));
+
+        rName.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        rName.setForeground(new java.awt.Color(255, 255, 255));
+        rName.setText("NAME");
+        add(rName, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 70, 20));
+        add(rAddressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, 190, -1));
+        add(rNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 140, 190, -1));
+        add(rContactTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 190, 190, -1));
+
+        rName1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        rName1.setForeground(new java.awt.Color(255, 255, 255));
+        rName1.setText("ADDRESS");
+        add(rName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 240, 100, 20));
+
+        btnBack2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnBack2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/PerformanceReports/left-arrow-in-circular-button-black-symbol.png"))); // NOI18N
+        btnBack2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
+        btnBack2.setOpaque(true);
+        btnBack2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtn2ActionPerformed(evt);
+                btnBack2ActionPerformed(evt);
             }
         });
-        add(backBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 50, 40));
+
+        rName2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        rName2.setForeground(new java.awt.Color(255, 255, 255));
+        rName2.setText("CONTACT INFO");
+        add(rName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 150, 20));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/Customer/Background.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1510, 1100));
+
+        rName3.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        rName3.setForeground(new java.awt.Color(255, 255, 255));
+        rName3.setText("ADDRESS");
+        add(rName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 240, 100, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void pkgCmbBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pkgCmbBoxActionPerformed
         // TODO add your handling code here:
         this.pkg = (Pkg) this.pkgCmbBox.getSelectedItem();
-        if(this.pkg!=null){
-        this.tempItems = this.pkg.getItemList().getItemList();
-        poulateItemsTbl(this.pkg);
+        if (this.pkg != null) {
+            this.tempItems = this.pkg.getItemList().getItemList();
+            poulateItemsTbl(this.pkg);
         }
     }//GEN-LAST:event_pkgCmbBoxActionPerformed
 
     private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
         // TODO add your handling code here:
         DefaultTableModel dtm = (DefaultTableModel) itemsTbl.getModel();
-        int index  = this.itemsTbl.getSelectedRow();
-        Item item = (Item)this.itemsTbl.getValueAt(index, 0);
-        if(index==-1)
+        int index = this.itemsTbl.getSelectedRow();
+        Item item = (Item) this.itemsTbl.getValueAt(index, 0);
+        if (index == -1)
             ErrorHelper.showWarning("A row must be selected");
-        else{
+        else {
             this.tempItems.remove(item);
             poulateItemsTbl(this.pkg);
         }
@@ -180,53 +221,70 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
-        Item item = (Item)this.itemCmbBox.getSelectedItem();
-        if(!this.tempItems.contains(item))
+        Item item = (Item) this.itemCmbBox.getSelectedItem();
+        if (!this.tempItems.contains(item)) {
             this.tempItems.add(item);
-        else
+        } else {
             ErrorHelper.showWarning("Item already added");
+        }
         poulateItemsTbl(pkg);
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         // TODO add your handling code here:
-        boolean isExist = checkAnyOpenReqExist();
-        if(!isExist){
-        this.pkg.setStatus(2);
-        AssignEmpWorkRequest assignEmpWorkRequest = new AssignEmpWorkRequest();
-        assignEmpWorkRequest.setPkg(pkg);
-        assignEmpWorkRequest.setSender(account);
-        assignEmpWorkRequest.setStatus("Sent");
-        assignEmpWorkRequest.setMessage("Packing request initiated");
-        assignEmpWorkRequest.setRequestDate(new Date());
-        this.account.getWorkQueue().getWorkRequestList().add(assignEmpWorkRequest);
-        this.business.getAppLogEmpOrganization().getWorkQueue().getWorkRequestList().add(assignEmpWorkRequest);
-        JOptionPane.showMessageDialog(this, "A request has been sent to the concerned team\nYou will be assigned an Logistic Support Person very soon\nHope you have a good experience");
+        getTextBoxValues();
+        if (isTextBoxNull()) {
+            ErrorHelper.showError("Receiver Information is Missing");
+        } else {
+            this.pkg.setRecv_name(recv_name);
+            this.pkg.setRecv_address(recv_address);
+            this.pkg.setRecv_cno(recv_cno);
+            boolean isExist = checkAnyOpenReqExist();
+            if (!isExist) {
+                this.pkg.setStatus(2);
+                AssignEmpWorkRequest assignEmpWorkRequest = new AssignEmpWorkRequest();
+                assignEmpWorkRequest.setPkg(pkg);
+                assignEmpWorkRequest.setSender(account);
+                assignEmpWorkRequest.setStatus("Sent");
+                assignEmpWorkRequest.setMessage("Packing request initiated");
+                assignEmpWorkRequest.setRequestDate(new Date());
+                this.account.getWorkQueue().getWorkRequestList().add(assignEmpWorkRequest);
+                this.business.getAppLogEmpOrganization().getWorkQueue().getWorkRequestList().add(assignEmpWorkRequest);
+                JOptionPane.showMessageDialog(this, "A request has been sent to the concerned team\nYou will be assigned an Logistic Support Person very soon\nHope you have a good experience");
+            } else {
+                ErrorHelper.showError("One of our representatives will look into your\nrequest. Thanks for your patience");
+            }
         }
-        else{
-            ErrorHelper.showError("One of our representatives will look into your\nrequest. Thanks for your patience");
-        }
-        
+
     }//GEN-LAST:event_saveBtnActionPerformed
 
-    private void backBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtn2ActionPerformed
-        // TODO add your handling code here:
-        this.userProcessContainer.remove(this);
-        ((CardLayout)this.userProcessContainer.getLayout()).previous(userProcessContainer);
-    }//GEN-LAST:event_backBtn2ActionPerformed
+    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
+
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBack2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
-    private javax.swing.JButton backBtn2;
+    private javax.swing.JButton btnBack2;
     private javax.swing.JComboBox itemCmbBox;
     private javax.swing.JTable itemsTbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox pkgCmbBox;
+    private javax.swing.JTextField rAddressTextField;
+    private javax.swing.JTextField rContactTextField;
+    private javax.swing.JLabel rName;
+    private javax.swing.JLabel rName1;
+    private javax.swing.JLabel rName2;
+    private javax.swing.JLabel rName3;
+    private javax.swing.JTextField rNameTextField;
     private javax.swing.JButton removeBtn;
     private javax.swing.JButton saveBtn;
     // End of variables declaration//GEN-END:variables
@@ -253,22 +311,37 @@ public class ManageItemsPackageJPanel extends javax.swing.JPanel {
     private void poulateItemsTbl(Pkg pkg) {
         DefaultTableModel dtm = (DefaultTableModel) itemsTbl.getModel();
         dtm.setRowCount(0);
-        if(this.tempItems!=null)
-        for (Item item : this.tempItems) {
-            Object[] obj = new Object[1];
-            obj[0] = item;
-            dtm.addRow(obj);
+        if (this.tempItems != null) {
+            for (Item item : this.tempItems) {
+                Object[] obj = new Object[1];
+                obj[0] = item;
+                dtm.addRow(obj);
+            }
         }
     }
 
     private boolean checkAnyOpenReqExist() {
-        for(WorkRequest workRequest : this.account.getWorkQueue().getWorkRequestList()){
-            if(workRequest.getStatus().equalsIgnoreCase("Pending") ||
-               workRequest.getStatus().equalsIgnoreCase("Processing")||
-               workRequest.getStatus().equalsIgnoreCase("Sent"))
+        for (WorkRequest workRequest : this.account.getWorkQueue().getWorkRequestList()) {
+            if (workRequest.getStatus().equalsIgnoreCase("Pending")
+                    || workRequest.getStatus().equalsIgnoreCase("Processing")
+                    || workRequest.getStatus().equalsIgnoreCase("Sent")) {
                 return true;
+            }
         }
         return false;
     }
-    
+
+    private void getTextBoxValues() {
+        this.recv_name = rNameTextField.getText();
+        this.recv_address = rAddressTextField.getText();
+        this.recv_cno = rContactTextField.getText();
+    }
+
+    private boolean isTextBoxNull() {
+        if (this.recv_name.isBlank() || this.recv_address.isBlank() || this.recv_cno.isBlank()) {
+            return true;
+        }
+        return false;
+    }
+
 }

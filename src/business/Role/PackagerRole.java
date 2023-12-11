@@ -22,8 +22,8 @@ public class PackagerRole extends Role{
     }
 
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
-        return new PackagerWorkArea( userProcessContainer,  account, (PackagingOrganization) organization,  business);
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business, JPanel prevContainer) {
+        return new PackagerWorkArea( userProcessContainer,  account, (PackagingOrganization) organization,  business, prevContainer);
     }
     
 }

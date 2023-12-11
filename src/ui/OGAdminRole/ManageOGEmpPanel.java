@@ -60,13 +60,13 @@ public class ManageOGEmpPanel extends javax.swing.JPanel {
         txtEmployeeName = new javax.swing.JTextField();
         btnCreateEmployee = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
         lblOrganizationPicker = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmployees = new javax.swing.JTable();
         lblEmployeeList = new javax.swing.JLabel();
         orgCmbBox = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
+        btnBack2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -99,15 +99,6 @@ public class ManageOGEmpPanel extends javax.swing.JPanel {
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("MANAGE EMPLOYEES");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 310, -1));
-
-        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnBack.setText("<< Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 33, -1, -1));
 
         lblOrganizationPicker.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblOrganizationPicker.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,6 +154,17 @@ public class ManageOGEmpPanel extends javax.swing.JPanel {
         jLabel4.setText("jLabel4");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 320, 250, 320));
 
+        btnBack2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnBack2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/PerformanceReports/left-arrow-in-circular-button-black-symbol.png"))); // NOI18N
+        btnBack2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
+        btnBack2.setOpaque(true);
+        btnBack2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack2ActionPerformed(evt);
+            }
+        });
+        add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 50, 40));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/OGAdminRole/Background.jpg"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 1100));
 
@@ -188,20 +190,20 @@ public class ManageOGEmpPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Employee Already Exist");
     }//GEN-LAST:event_btnCreateEmployeeActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
-
     private void orgCmbBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgCmbBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_orgCmbBoxActionPerformed
 
+    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
+
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBack2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnBack2;
     private javax.swing.JButton btnCreateEmployee;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

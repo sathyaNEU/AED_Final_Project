@@ -22,8 +22,8 @@ public class AARole extends Role {
     }
 
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
-        return new AAWorkArea(userProcessContainer,  account, (AAOrganization) organization,  business);
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business,JPanel prevContainer) {
+        return new AAWorkArea(userProcessContainer,  account, (AAOrganization) organization,  business, prevContainer);
     }
     
 }

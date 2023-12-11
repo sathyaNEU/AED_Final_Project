@@ -45,68 +45,55 @@ public class ProcessPackRequestJPanel extends javax.swing.JPanel {
         btnSubmit2 = new javax.swing.JButton();
         lblResult = new javax.swing.JLabel();
         txtResults = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblTitle.setText("Result Submission");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnSubmit2.setText("Submit Result");
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("RESULT SUBMISSION");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 30, 290, 50));
+
+        btnSubmit2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnSubmit2.setText("SUBMIT RESULT");
         btnSubmit2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmit2ActionPerformed(evt);
             }
         });
+        add(btnSubmit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, -1, -1));
 
-        lblResult.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblResult.setText("Result:");
+        lblResult.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblResult.setForeground(new java.awt.Color(255, 255, 255));
+        lblResult.setText("RESULT:");
+        add(lblResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 200, -1, -1));
+        add(txtResults, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 200, 294, -1));
 
-        btnBack.setText("<< Back");
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/PackagerRole/result.jpeg"))); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 550, -1));
+
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/PerformanceReports/left-arrow-in-circular-button-black-symbol.png"))); // NOI18N
+        btnBack.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
+        btnBack.setOpaque(true);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 50, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblResult)
-                    .addComponent(btnSubmit2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addGap(33, 33, 33)
-                        .addComponent(lblTitle))
-                    .addComponent(txtResults, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(350, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(lblTitle))
-                .addGap(76, 76, 76)
-                .addComponent(lblResult)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSubmit2)
-                .addContainerGap(180, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/PackagerRole/Background.jpg"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 1110));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmit2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmit2ActionPerformed
         
         this.request.getPkg().setStatus(4);
         this.request.setResolveDate(new Date());
-        this.request.getPrevReq().setResult("Packed and sent back to the logistics enterprise");
-        this.request.setResult("Packed and sent back to the logistics enterprise");
-        this.request.getPrevReq().setResult("Packing Complete, in hold with logistic support team");
+        this.request.getPrevReq().setResult((this.txtResults.getText()==null)?"No Comments":this.txtResults.getText());
         this.request.setStatus("Completed");
         JOptionPane.showMessageDialog(this, "Request Resolved");
         
@@ -115,10 +102,6 @@ public class ProcessPackRequestJPanel extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
         userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        PackagerWorkArea pwa = (PackagerWorkArea) component;
-        pwa.populateTable();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -126,9 +109,9 @@ public class ProcessPackRequestJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnSubmit;
-    private javax.swing.JButton btnSubmit1;
     private javax.swing.JButton btnSubmit2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblResult;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtResults;

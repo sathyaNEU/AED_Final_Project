@@ -58,13 +58,13 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         lblTitle = new javax.swing.JLabel();
-        btnBack2 = new javax.swing.JButton();
         saveBtn = new javax.swing.JButton();
         acceptBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         itemsTbl = new javax.swing.JTable();
         rejectbtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btnBack2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -73,15 +73,6 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("CUSTOMS WORK RESPONSIBILITY");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
-
-        btnBack2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnBack2.setText("<< BACK");
-        btnBack2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBack2ActionPerformed(evt);
-            }
-        });
-        add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         saveBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         saveBtn.setText("PUSH RESPONSE TO LOGISTICS ENTERPRISE");
@@ -129,26 +120,31 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AARole/cargoresponsibilty.jpeg"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 290, 540, 370));
 
+        btnBack2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnBack2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/PerformanceReports/left-arrow-in-circular-button-black-symbol.png"))); // NOI18N
+        btnBack2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
+        btnBack2.setOpaque(true);
+        btnBack2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack2ActionPerformed(evt);
+            }
+        });
+        add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 50, 40));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AARole/Background.jpg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1530, 1110));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
-
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBack2ActionPerformed
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         // TODO add your handling code here:
         boolean canContinue = checkIfActionsPerformed();
         if (canContinue) {
-            this.pkg.setStatus(6);
+            this.request.getPkg().setStatus(6);
             getRejectedItems();
             this.request.setResult(rejectedItems);
             this.request.setStatus("Completed");
             this.request.setResolveDate(new Date());
+            this.request.getPrevAssEmpReq().setResult("Customs Cleared");
             JOptionPane.showMessageDialog(this, "Response forwarded back to logistic enterprise");
         } else {
             ErrorHelper.showError("Items not thoroughly reviewed");
@@ -179,6 +175,13 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
             populateTable();
         }
     }//GEN-LAST:event_rejectbtnActionPerformed
+
+    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
+
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBack2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

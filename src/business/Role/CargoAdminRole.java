@@ -22,8 +22,8 @@ public class CargoAdminRole extends Role{
     }
   
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
-        return new CargoAdminWorkArea( userProcessContainer,  account, (CargoOrganization) organization,  business);
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business, JPanel prevContainer) {
+        return new CargoAdminWorkArea( userProcessContainer,  account, (CargoOrganization) organization,  business, prevContainer);
     }
     
 }

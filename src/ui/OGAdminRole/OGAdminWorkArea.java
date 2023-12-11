@@ -8,7 +8,9 @@ import business.Business;
 import business.Organization.Organization;
 import business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
+import ui.LoginScreen;
 
 /**
  *
@@ -23,12 +25,14 @@ public class OGAdminWorkArea extends javax.swing.JPanel {
     UserAccount account;
     Organization organization;
     Business business;
-    public OGAdminWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
+    JPanel prevContainer;
+    public OGAdminWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business,JPanel prevContainer) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.organization = organization;
         this.business = business;
+        this.prevContainer = prevContainer;
     }
 
     /**
@@ -42,10 +46,11 @@ public class OGAdminWorkArea extends javax.swing.JPanel {
 
         lblTitle = new javax.swing.JLabel();
         manageEmpBtn = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
         userJButton = new javax.swing.JButton();
         manageOrganizationJButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        logoutBtn = new javax.swing.JButton();
+        userJButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -65,15 +70,6 @@ public class OGAdminWorkArea extends javax.swing.JPanel {
             }
         });
         add(manageEmpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 220, -1));
-
-        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnBack.setText("<< BACK");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         userJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         userJButton.setText(" MANAGE USERS");
@@ -96,6 +92,24 @@ public class OGAdminWorkArea extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/OGAdminRole/Admin.jpeg"))); // NOI18N
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 260, 280));
 
+        logoutBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        logoutBtn.setText("Logout");
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBtnActionPerformed(evt);
+            }
+        });
+        add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 30, -1, -1));
+
+        userJButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        userJButton1.setText("Receive Packages");
+        userJButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userJButton1ActionPerformed(evt);
+            }
+        });
+        add(userJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 220, -1));
+
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/OGAdminRole/Background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -114,17 +128,10 @@ public class OGAdminWorkArea extends javax.swing.JPanel {
         
     }//GEN-LAST:event_manageEmpBtnActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
-
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
         // TODO add your handling code here:
         ManageLogEmpUserAccountJPanel manageLogEmpUserAccountJPanel = new ManageLogEmpUserAccountJPanel(userProcessContainer, business);
-        userProcessContainer.add("ManageUserAccountJPanel", manageLogEmpUserAccountJPanel);
+        userProcessContainer.add("manageLogEmpUserAccountJPanel", manageLogEmpUserAccountJPanel);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -138,15 +145,34 @@ public class OGAdminWorkArea extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageOrganizationJButtonActionPerformed
 
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+        // TODO add your handling code here:
+
+        Component comp = this.prevContainer.getComponent(0);
+        LoginScreen ls = (LoginScreen)comp;
+        ls.clearContents();
+        this.userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void userJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButton1ActionPerformed
+        // TODO add your handling code here:
+        ReceivePackageJPanel receivePackageJPanel = new ReceivePackageJPanel(userProcessContainer, account, organization, business);
+        this.userProcessContainer.add("receivePackageJPanel",receivePackageJPanel);
+        ((CardLayout)this.userProcessContainer.getLayout()).next(this.userProcessContainer);
+    }//GEN-LAST:event_userJButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JButton logoutBtn;
     private javax.swing.JButton manageEmpBtn;
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton userJButton;
+    private javax.swing.JButton userJButton1;
     // End of variables declaration//GEN-END:variables
 }

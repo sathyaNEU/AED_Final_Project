@@ -21,9 +21,9 @@ public class AppLogEmpRole extends Role {
     }
 
 @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business,JPanel prevContainer) {
         this.type = RoleType.AppLogEmp;
-        return new AppLogEmpWorkArea( userProcessContainer,  account, (AppLogEmpOrganization)organization,  business);
+        return new AppLogEmpWorkArea( userProcessContainer,  account, (AppLogEmpOrganization)organization,  business, prevContainer);
     }
     
 }

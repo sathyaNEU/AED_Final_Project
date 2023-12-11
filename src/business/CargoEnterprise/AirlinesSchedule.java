@@ -16,6 +16,7 @@ public class AirlinesSchedule {
     String arr_time;
     String arr_airport;
     int spots;
+    String date;
 
     public String getAirline() {
         return airline;
@@ -75,6 +76,14 @@ public class AirlinesSchedule {
     
     public String toString(){
         return this.airline;
+    }
+    
+        public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
     
     

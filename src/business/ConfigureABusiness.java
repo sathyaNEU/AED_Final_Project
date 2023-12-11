@@ -19,8 +19,11 @@ import business.Role.AppLogEmpRole;
 import business.Role.BusinessAdminRole;
 import business.Role.CargoAdminRole;
 import business.Role.CustomerRole;
+import business.Role.OGLogAdminRole;
+import business.Role.OGLogEmpRole;
 import business.Role.PackagerRole;
 import business.UserAccount.UserAccount;
+import business.WorkQueue.CommonEndpointRequests;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -118,6 +121,28 @@ public class ConfigureABusiness {
         PackOrg.getEmployeeDirectory().getEmployeeList().add(employee6);
         PackOrg.getUserAccountDirectory().getUserAccountList().add(account6);
         
+        Organization OGLogAdmin = business.getOrganizationDirectory().createOrganization(Organization.Type.OGLogAdmin); 
+        Employee employee7 = new Employee();
+        employee7.setName("DH Laurance");
+        UserAccount account7 = new UserAccount();
+        account7.setUsername("dhl");
+        account7.setPassword("aA123456");
+        account7.setRole(new OGLogAdminRole());
+        account7.setEmployee(employee7);
+        OGLogAdmin.getEmployeeDirectory().getEmployeeList().add(employee7);
+        OGLogAdmin.getUserAccountDirectory().getUserAccountList().add(account7);
+        
+        Organization OGLogEmp = business.getOrganizationDirectory().createOrganization(Organization.Type.OGLogEmp); 
+        Employee employee8 = new Employee();
+        employee8.setName("Travis Scott");
+        UserAccount account8 = new UserAccount();
+        account8.setUsername("ogemp");
+        account8.setPassword("aA123456");
+        account8.setRole(new OGLogEmpRole());
+        account8.setEmployee(employee8);
+        OGLogEmp.getEmployeeDirectory().getEmployeeList().add(employee8);
+        OGLogEmp.getUserAccountDirectory().getUserAccountList().add(account8);
+        
         ArrayList<AirlinesSchedule> airScheduleList = new ArrayList<>();
         
         BufferedReader file_content = null;
@@ -130,6 +155,7 @@ public class ConfigureABusiness {
         String arg5;
         String arg6;
         int arg7;
+        String arg8;
         try{
             file_content = new BufferedReader(new FileReader(file_path));
             while((currentLine=file_content.readLine())!=null){
@@ -141,6 +167,7 @@ public class ConfigureABusiness {
                 arg5 = split_str[4];
                 arg6 = split_str[5];
                 arg7 = Integer.parseInt(split_str[6]);
+                arg8 = split_str[7];
                 AirlinesSchedule as = new AirlinesSchedule();
                 as.setAirline(arg1);
                 as.setFlight_id(arg2);
@@ -149,6 +176,7 @@ public class ConfigureABusiness {
                 as.setArr_time(arg5);
                 as.setArr_airport(arg6);
                 as.setSpots(arg7);
+                as.setDate(arg8);
                 airScheduleList.add(as);
             }
             
@@ -171,6 +199,9 @@ public class ConfigureABusiness {
         
         PackageList packageList = new PackageList();
         business.setPackageList(packageList);
+        
+        CommonEndpointRequests cer = new CommonEndpointRequests();
+        business.setCer(cer);
               
         return business;
     }

@@ -11,6 +11,7 @@ import business.Enterprise.AppLogBusiness.PackageList;
 import business.Enterprise.AppLogBusiness.sItemList;
 import business.Organization.Organization;
 import business.Organization.OrganizationDirectory;
+import business.WorkQueue.CommonEndpointRequests;
 import java.util.ArrayList;
 
 /**
@@ -24,6 +25,7 @@ public class Business {
     private DailyPricingList dailyPricingList;
     private PackageList packageList;
     private ArrayList<AirlinesSchedule> airScheduleList;
+    CommonEndpointRequests cer;
 
     public ArrayList<AirlinesSchedule> getAirScheduleList() {
         return airScheduleList;
@@ -110,6 +112,15 @@ public class Business {
         }
         return null;
     }
+    
+    public Organization getOGLogEmpOrganization() {
+        for (Organization org : getOrganizationDirectory().getOrganizationList()) {
+            if (org.getName().equals(Organization.Type.OGLogEmp.getValue())) {
+                return org;
+            }
+        }
+        return null;
+    }
 
     public DailyPricingList getDailyPricingList() {
         return this.dailyPricingList;
@@ -118,5 +129,15 @@ public class Business {
     public void setDailyPricingList(DailyPricingList dp) {
         this.dailyPricingList = dp;
     }
+
+    public CommonEndpointRequests getCer() {
+        return cer;
+    }
+
+    public void setCer(CommonEndpointRequests cer) {
+        this.cer = cer;
+    }
+    
+    
 
 }

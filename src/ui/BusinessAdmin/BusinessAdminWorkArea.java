@@ -8,7 +8,11 @@ import business.Business;
 import business.Organization.Organization;
 import business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
+import ui.LoginScreen;
+import ui.PerformanceReports.PerformanceRating;
+import ui.PerformanceReports.PerformanceRating1;
 
 /**
  *
@@ -23,13 +27,15 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
     UserAccount account;
     Organization organization;
     Business business;
+    JPanel prevContainer;
 
-    public BusinessAdminWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
+    public BusinessAdminWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business,JPanel prevContainer) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.organization = organization;
         this.business = business;
+        this.prevContainer = prevContainer;
     }
 
     /**
@@ -42,12 +48,14 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
     private void initComponents() {
 
         manageEmpBtn2 = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
         userJButton = new javax.swing.JButton();
         manageOrganizationJButton = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         managePriceBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        logoutBtn1 = new javax.swing.JButton();
+        perfBtn = new javax.swing.JButton();
+        perfBtn1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -60,15 +68,6 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
             }
         });
         add(manageEmpBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 260, 50));
-
-        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        btnBack.setText("<< BACK");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         userJButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         userJButton.setText("MANAGE USERS");
@@ -100,10 +99,37 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
                 managePriceBtnActionPerformed(evt);
             }
         });
-        add(managePriceBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 260, 50));
+        add(managePriceBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 630, 260, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/BusinessAdmin/adminworkarea.png"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 20, 220, 230));
+
+        logoutBtn1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        logoutBtn1.setText("Logout");
+        logoutBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBtn1ActionPerformed(evt);
+            }
+        });
+        add(logoutBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 20, -1, -1));
+
+        perfBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        perfBtn.setText("CUSTOMER REPORT");
+        perfBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                perfBtnActionPerformed(evt);
+            }
+        });
+        add(perfBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 260, 50));
+
+        perfBtn1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        perfBtn1.setText("EMPLOYEE REPORT");
+        perfBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                perfBtn1ActionPerformed(evt);
+            }
+        });
+        add(perfBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 260, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/BusinessAdmin/Background.jpg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 1100));
@@ -115,13 +141,6 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
         userProcessContainer.add("manageAppSubEmpPanel", manageAppSubEmpPanel);
         ((CardLayout) this.userProcessContainer.getLayout()).next(this.userProcessContainer);
     }//GEN-LAST:event_manageEmpBtn2ActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
         // TODO add your handling code here:
@@ -147,15 +166,43 @@ public class BusinessAdminWorkArea extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_managePriceBtnActionPerformed
 
+    private void logoutBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtn1ActionPerformed
+        // TODO add your handling code here:
+
+        Component comp = this.prevContainer.getComponent(0);
+        LoginScreen ls = (LoginScreen)comp;
+        ls.clearContents();
+        this.userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_logoutBtn1ActionPerformed
+
+    private void perfBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perfBtnActionPerformed
+        // TODO add your handling code here:
+        PerformanceRating performanceRating = new PerformanceRating(userProcessContainer, business);
+        this.userProcessContainer.add("performanceRating",performanceRating);
+        ((CardLayout)this.userProcessContainer.getLayout()).next(this.userProcessContainer);
+    }//GEN-LAST:event_perfBtnActionPerformed
+
+    private void perfBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perfBtn1ActionPerformed
+        // TODO add your handling code here:
+        PerformanceRating1 performanceRating1 = new PerformanceRating1(userProcessContainer, business);
+        this.userProcessContainer.add("performanceRating1",performanceRating1);
+        ((CardLayout)this.userProcessContainer.getLayout()).next(this.userProcessContainer);
+        
+    }//GEN-LAST:event_perfBtn1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JButton logoutBtn1;
     private javax.swing.JButton manageEmpBtn2;
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton managePriceBtn;
+    private javax.swing.JButton perfBtn;
+    private javax.swing.JButton perfBtn1;
     private javax.swing.JButton userJButton;
     // End of variables declaration//GEN-END:variables
 }

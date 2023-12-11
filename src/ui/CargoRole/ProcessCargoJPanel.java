@@ -48,19 +48,21 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
         this.account = account;
         this.weight = this.request.getPkg().getWeight();
         this.as = this.business.getAirScheduleList();
-        if(this.weight<=20)
+        if (this.weight <= 20) {
             this.spot = 1;
-        else if(this.weight>20 && this.weight<=40)
+        } else if (this.weight > 20 && this.weight <= 40) {
             this.spot = 2;
-        else if(this.weight>40 && this.weight<=60)
+        } else if (this.weight > 40 && this.weight <= 60) {
             this.spot = 3;
-        else
+        } else {
             this.spot = 4;
+        }
         this.pkgTextField.setText(String.valueOf(this.request.getPkg().getPackage_id()));
         this.logEmpTextField.setText(this.request.getSender().getEmployee().getName());
         this.spotsTextField.setText(String.valueOf(this.spot));
+        this.jTextField1.setText(this.request.getPkg().getShipType());
         populateTbl();
-            
+
     }
 
     /**
@@ -73,7 +75,6 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnSubmit = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         airlinesTbl = new javax.swing.JTable();
@@ -84,117 +85,126 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
         spotsTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        btnBack2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnSubmit.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnSubmit.setText("Book and Complete Request");
+        btnSubmit.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnSubmit.setText("BOOK AND COMPLETE REQUEST");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 540, -1, 20));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 570, -1, 20));
 
-        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnBack.setText("<< Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
-
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setText("Result Submission");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 190, -1));
+        lblTitle.setText("RESULT SUBMISSION");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 290, -1));
 
         airlinesTbl.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         airlinesTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Airlines", "Flight ID", "DEPT Time", "DEPT Airport", "ARR Time", "ARR Airport", "SPOTS"
+                "Airlines", "Flight ID", "DEPT Time", "DEPT Airport", "ARR Time", "ARR Airport", "SPOTS", "Date"
             }
         ));
         jScrollPane1.setViewportView(airlinesTbl);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 84, 739, 266));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 84, 870, 266));
 
         pkgTextField.setEditable(false);
-        add(pkgTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 132, 30));
+        add(pkgTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 100, 30));
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Package ID");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 110, 30));
+        jLabel1.setText("PACKAGE ID");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 120, 30));
 
         logEmpTextField.setEditable(false);
-        add(logEmpTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, 158, 30));
+        add(logEmpTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, 158, 30));
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Support Executive");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 386, -1, 30));
+        jLabel2.setText("SUPPORT EXECUTIVE");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, -1, 30));
 
         spotsTextField.setEditable(false);
-        add(spotsTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 80, 30));
+        add(spotsTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 100, 30));
 
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Spots");
+        jLabel3.setText("SPOTS");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 445, 74, 30));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/CargoRole/cargo.jpeg"))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, -100, 460, 460));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("SHIP TYPE");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 170, 30));
+
+        jTextField1.setEditable(false);
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 450, 160, 30));
+
+        btnBack2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnBack2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/PerformanceReports/left-arrow-in-circular-button-black-symbol.png"))); // NOI18N
+        btnBack2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
+        btnBack2.setOpaque(true);
+        btnBack2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack2ActionPerformed(evt);
+            }
+        });
+        add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 50, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/CargoRole/Background.jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 1530, 1100));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -130, 1530, 1100));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        AppLogEmpWorkArea alewa = (AppLogEmpWorkArea) component;
-        alewa.populateTable();
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-
-    }//GEN-LAST:event_btnBackActionPerformed
-
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        
+
         int index = this.airlinesTbl.getSelectedRow();
-        if(index==-1)
+        if (index == -1) {
             ErrorHelper.showWarning("Row not Selected");
-        else{
+        } else {
+            if(this.request.getPkg().getStatus()==6){
             AirlinesSchedule schedule = (AirlinesSchedule) this.airlinesTbl.getValueAt(index, 0);
-            schedule.setSpots(schedule.getSpots()-this.spot);
+            schedule.setSpots(schedule.getSpots() - this.spot);
             this.request.setResult("Airlines associated");
+            this.request.setStatus("Completed");
             this.request.getPkg().setStatus(7);
+            this.request.getPkg().setSchedule(schedule);
             this.request.setResolveDate(new Date());
+            this.business.getCer().getCargoRequestList().put(request, Boolean.FALSE);
             populateTbl();
             JOptionPane.showMessageDialog(this, "Shipment Scheduled Successfully");
-            
+            }
+            else
+                ErrorHelper.showError("Airlines Scheduled Already");
         }
-        
 
 
     }//GEN-LAST:event_btnSubmitActionPerformed
 
+    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
+
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBack2ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable airlinesTbl;
-    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnBack2;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -202,6 +212,7 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField logEmpTextField;
     private javax.swing.JTextField pkgTextField;
@@ -209,10 +220,10 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateTbl() {
-        DefaultTableModel dtm = (DefaultTableModel)this.airlinesTbl.getModel();
+        DefaultTableModel dtm = (DefaultTableModel) this.airlinesTbl.getModel();
         dtm.setRowCount(0);
-        for(AirlinesSchedule schedule : this.as){
-            Object[] obj = new Object[7];
+        for (AirlinesSchedule schedule : this.as) {
+            Object[] obj = new Object[8];
             obj[0] = schedule;
             obj[1] = schedule.getFlight_id();
             obj[2] = schedule.getStart_time();
@@ -220,6 +231,7 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
             obj[4] = schedule.getArr_time();
             obj[5] = schedule.getArr_airport();
             obj[6] = String.valueOf(schedule.getSpots());
+            obj[7] = schedule.getDate();
             dtm.addRow(obj);
         }
     }

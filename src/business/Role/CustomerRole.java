@@ -23,8 +23,8 @@ public class CustomerRole extends Role{
 
     
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
-        return new CustomerWorkArea( userProcessContainer,  account, (CustomerOrganization) organization, business);
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business,JPanel prevContainer) {
+        return new CustomerWorkArea( userProcessContainer,  account, (CustomerOrganization) organization, business, prevContainer);
     }
     
 }

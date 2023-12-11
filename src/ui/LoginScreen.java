@@ -32,6 +32,18 @@ public class LoginScreen extends javax.swing.JPanel {
         this.business = business;
         
     }
+    
+    private void initUserWorkArea(JPanel mainWorkArea, UserAccount userAccount, Organization organization, Business business) {
+                
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        mainWorkArea.add("workArea", userAccount.getRole().createWorkArea(mainWorkArea, userAccount, organization, business, mainWorkArea));
+        layout.next(mainWorkArea);
+    }
+    
+    public void clearContents(){
+        this.txtUserName.setText("");
+        this.pwdField.setText("");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -97,8 +109,8 @@ public class LoginScreen extends javax.swing.JPanel {
         });
         add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, 170, 40));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/loginimg.png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 230, 240));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/emp1.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 250, 250));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/Background.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -118,11 +130,7 @@ public class LoginScreen extends javax.swing.JPanel {
         for (Organization organization : business.getOrganizationDirectory().getOrganizationList()){
             userAccount = organization.getUserAccountDirectory().authenticateUser(userName, password);
             if (userAccount != null){
-                
-                JPanel mainScreen = new MainScreen(mainWorkArea, userAccount, organization, business);
-                mainWorkArea.add("MainScreen", mainScreen);
-                CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-                layout.next(mainWorkArea);
+                   initUserWorkArea(mainWorkArea, userAccount, organization, business);
                 
                 flag = true;
                 break;
@@ -160,5 +168,4 @@ public class LoginScreen extends javax.swing.JPanel {
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 
-    
 }

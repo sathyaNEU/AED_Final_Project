@@ -13,6 +13,7 @@ import business.Enterprise.AppLogBusiness.Pkg;
 public class CargoWorkRequest extends WorkRequest{
     Pkg pkg;
     String result;
+    AssignEmpWorkRequest prevAssignEmpReq;
 
     public Pkg getPkg() {
         return pkg;
@@ -29,4 +30,14 @@ public class CargoWorkRequest extends WorkRequest{
     public void setResult(String result) {
         this.result = result;
     }
+
+    public AssignEmpWorkRequest getPrevAssignEmpReq() {
+        return prevAssignEmpReq;
+    }
+
+    public void setPrevAssignEmpReq(AssignEmpWorkRequest prevAssignEmpReq) {
+        this.prevAssignEmpReq = prevAssignEmpReq;
+    }
+    
+    
 }

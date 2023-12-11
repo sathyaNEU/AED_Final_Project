@@ -46,7 +46,7 @@ public abstract class Role {
 
     public RoleType type;
 
-    public abstract JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business);
+    public abstract JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business, JPanel prevContainer);
 
     @Override
     public String toString() {

@@ -8,7 +8,9 @@ import business.Business;
 import business.Organization.Organization;
 import business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
+import ui.LoginScreen;
 
 /**
  *
@@ -23,12 +25,14 @@ public class CustomerWorkArea extends javax.swing.JPanel {
     UserAccount account;
     Organization organization;
     Business business;
-    public CustomerWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
+    JPanel prevContainer;
+    public CustomerWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business, JPanel prevContainer) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.organization = organization;
         this.business = business;
+        this.prevContainer = prevContainer;
     }
 
     /**
@@ -45,6 +49,7 @@ public class CustomerWorkArea extends javax.swing.JPanel {
         orderHistoryBtn = new javax.swing.JButton();
         orderHistoryBtn1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        logoutBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setForeground(new java.awt.Color(255, 255, 255));
@@ -85,6 +90,15 @@ public class CustomerWorkArea extends javax.swing.JPanel {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/Customer/cust4.png"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 420, 360));
 
+        logoutBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        logoutBtn.setText("LOGOUT");
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBtnActionPerformed(evt);
+            }
+        });
+        add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1340, 20, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/Customer/Background.jpg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 1100));
     }// </editor-fold>//GEN-END:initComponents
@@ -110,12 +124,24 @@ public class CustomerWorkArea extends javax.swing.JPanel {
         ((CardLayout)this.userProcessContainer.getLayout()).next(this.userProcessContainer);        
     }//GEN-LAST:event_orderHistoryBtn1ActionPerformed
 
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+        // TODO add your handling code here:
+
+        Component comp = this.prevContainer.getComponent(0);
+        LoginScreen ls = (LoginScreen)comp;
+        ls.clearContents();
+        this.userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_logoutBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton getQuoteBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JButton logoutBtn;
     private javax.swing.JButton orderHistoryBtn;
     private javax.swing.JButton orderHistoryBtn1;
     // End of variables declaration//GEN-END:variables

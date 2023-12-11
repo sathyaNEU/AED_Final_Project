@@ -49,9 +49,9 @@ public class CustomerSignUpJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         pwdTextField = new javax.swing.JTextField();
         signUpBtn = new javax.swing.JButton();
-        backBtn = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
+        btnBack2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -78,7 +78,7 @@ public class CustomerSignUpJPanel extends javax.swing.JPanel {
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 100, 24));
         add(pwdTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 174, -1));
 
-        signUpBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        signUpBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         signUpBtn.setText("SIGN UP");
         signUpBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,21 +87,23 @@ public class CustomerSignUpJPanel extends javax.swing.JPanel {
         });
         add(signUpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, -1, -1));
 
-        backBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        backBtn.setText("<< BACK");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
+        btnBack2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnBack2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/PerformanceReports/left-arrow-in-circular-button-black-symbol.png"))); // NOI18N
+        btnBack2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
+        btnBack2.setOpaque(true);
+        btnBack2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
+                btnBack2ActionPerformed(evt);
             }
         });
-        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 26, -1, -1));
+        add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 50, 40));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/Customer/Background.jpg"))); // NOI18N
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -10, 1500, 1150));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/Customer/User.jpeg"))); // NOI18N
         jLabel7.setText("jLabel7");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 260, 200));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/Customer/Background.jpg"))); // NOI18N
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1500, 1150));
     }// </editor-fold>//GEN-END:initComponents
 
     private void signUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpBtnActionPerformed
@@ -127,21 +129,22 @@ public class CustomerSignUpJPanel extends javax.swing.JPanel {
 
         }
     }//GEN-LAST:event_signUpBtnActionPerformed
+
+    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
+
+        mainWorkArea.remove(this);
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.previous(mainWorkArea);
+    }//GEN-LAST:event_btnBack2ActionPerformed
     private boolean validatePwd(String pwd) {
         return pwd.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$");
 
     }
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
-        this.mainWorkArea.remove(this);
-        ((CardLayout) this.mainWorkArea.getLayout()).previous(mainWorkArea);
-    }//GEN-LAST:event_backBtnActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField UserNameTextField;
-    private javax.swing.JButton backBtn;
+    private javax.swing.JButton btnBack2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

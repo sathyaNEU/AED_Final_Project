@@ -13,6 +13,7 @@ import business.Enterprise.AppLogBusiness.Pkg;
 public class CustomsWorkRequest extends WorkRequest {
     Pkg pkg;
     String result;
+    AssignEmpWorkRequest prevAssEmpReq;
 
     public Pkg getPkg() {
         return pkg;
@@ -29,4 +30,13 @@ public class CustomsWorkRequest extends WorkRequest {
     public void setResult(String result) {
         this.result = result;
     }
+
+    public AssignEmpWorkRequest getPrevAssEmpReq() {
+        return prevAssEmpReq;
+    }
+
+    public void setPrevAssEmpReq(AssignEmpWorkRequest prevAssEmpReq) {
+        this.prevAssEmpReq = prevAssEmpReq;
+    }
+    
 }

@@ -10,10 +10,12 @@ import business.UserAccount.UserAccount;
 import business.WorkQueue.CargoWorkRequest;
 import business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
-
+import ui.LoginScreen;
 /**
  *
  * @author Sathya
@@ -27,13 +29,15 @@ public class CargoAdminWorkArea extends javax.swing.JPanel {
     UserAccount account;
     Organization organization;
     Business business;
+    JPanel prevContainer;
 
-    public CargoAdminWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business) {
+    public CargoAdminWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Business business, JPanel prevContainer) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.organization = organization;
         this.business = business;
+        this.prevContainer = prevContainer;
         populateTable();
 
     }
@@ -51,16 +55,16 @@ public class CargoAdminWorkArea extends javax.swing.JPanel {
         btnProcess = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
-        btnBack2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblWorkRequests = new javax.swing.JTable();
+        logoutBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnAssign.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnAssign.setText("Assign to me");
+        btnAssign.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnAssign.setText("ASSIGN TO ME");
         btnAssign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignActionPerformed(evt);
@@ -68,37 +72,28 @@ public class CargoAdminWorkArea extends javax.swing.JPanel {
         });
         add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, -1, -1));
 
-        btnProcess.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnProcess.setText("Process");
+        btnProcess.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnProcess.setText("PROCESS");
         btnProcess.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProcessActionPerformed(evt);
             }
         });
-        add(btnProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, 100, -1));
+        add(btnProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, 160, -1));
 
-        btnRefresh.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnRefresh.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshActionPerformed(evt);
             }
         });
-        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, -1, -1));
+        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, -1, -1));
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setText("Cargo Admin Work Area");
+        lblTitle.setText("CARGO ADMIN WORK AREA");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
-
-        btnBack2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnBack2.setText("<< Back");
-        btnBack2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBack2ActionPerformed(evt);
-            }
-        });
-        add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 17, -1, -1));
 
         tblWorkRequests.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         tblWorkRequests.setModel(new javax.swing.table.DefaultTableModel(
@@ -131,9 +126,18 @@ public class CargoAdminWorkArea extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 623, 171));
 
+        logoutBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        logoutBtn.setText("LOGOUT");
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBtnActionPerformed(evt);
+            }
+        });
+        add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, -1, -1));
+
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/CargoRole/Background.jpg"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1500, 1110));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 1530, 1110));
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 120, 130, 150));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -177,23 +181,27 @@ public class CargoAdminWorkArea extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_btnRefreshActionPerformed
 
-    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
-
-        userProcessContainer.remove(this);
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+        // TODO add your handling code here:
+        
+        Component comp = this.prevContainer.getComponent(0);
+        LoginScreen ls = (LoginScreen)comp;
+        ls.clearContents();
+        this.userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBack2ActionPerformed
+    }//GEN-LAST:event_logoutBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssign;
-    private javax.swing.JButton btnBack2;
     private javax.swing.JButton btnProcess;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JButton logoutBtn;
     private javax.swing.JTable tblWorkRequests;
     // End of variables declaration//GEN-END:variables
 

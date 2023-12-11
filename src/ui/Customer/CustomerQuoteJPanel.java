@@ -54,7 +54,6 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnBack1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         weightTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -72,6 +71,7 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
         typeCmbBox = new javax.swing.JComboBox();
         proceedBtn = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        btnBack2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -83,15 +83,6 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ESTIMATED BILLING");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 260, 40));
-
-        btnBack1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        btnBack1.setText("<< BACK");
-        btnBack1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBack1ActionPerformed(evt);
-            }
-        });
-        add(btnBack1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,6 +164,17 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/Customer/Box.jpeg"))); // NOI18N
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 420, 370, 240));
 
+        btnBack2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnBack2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/PerformanceReports/left-arrow-in-circular-button-black-symbol.png"))); // NOI18N
+        btnBack2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
+        btnBack2.setOpaque(true);
+        btnBack2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack2ActionPerformed(evt);
+            }
+        });
+        add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 50, 40));
+
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/Customer/Background.jpg"))); // NOI18N
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, 1100));
 
@@ -185,13 +187,6 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
         jLabel12.setText("jLabel12");
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 430, 250, 290));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
-
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBack1ActionPerformed
 
     private void getQuoteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getQuoteBtnActionPerformed
         // TODO add your handling code here:
@@ -222,7 +217,7 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
             this.proceedBtn.setVisible(true);
             }
             else
-                ErrorHelper.showError("Prices Not Yet Configured. Please reach out to Audmin");
+                ErrorHelper.showError("Prices Not Yet Configured. Please reach out to Admin");
         }
         catch(Exception e){
             e.printStackTrace();
@@ -286,9 +281,16 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_expScTextFieldActionPerformed
 
+    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
+
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBack2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack1;
+    private javax.swing.JButton btnBack2;
     private javax.swing.JTextField expGstTextField;
     private javax.swing.JTextField expScTextField;
     private javax.swing.JTextField expTotalChargesTextField;

@@ -12,6 +12,10 @@ public class Item {
     String item;
     String status;
     
+    public Item(){
+        this.status = "No Actions Performed";
+    }
+    
     public String getItem() {
         return item;
     }

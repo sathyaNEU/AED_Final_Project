@@ -91,10 +91,10 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
         lblCreateUser = new javax.swing.JLabel();
         txtUserName = new javax.swing.JTextField();
         orgCmbBox = new javax.swing.JComboBox();
-        btnBack = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         lblUsersList = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnBack2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -254,15 +254,6 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
 
         add(grpNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 180, 360, 350));
 
-        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        btnBack.setText("<< BACK");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
-
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("MANAGE USERS");
@@ -275,6 +266,17 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/BusinessAdmin/manageuser.jpeg"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-330, 130, 850, 400));
+
+        btnBack2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnBack2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/PerformanceReports/left-arrow-in-circular-button-black-symbol.png"))); // NOI18N
+        btnBack2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
+        btnBack2.setOpaque(true);
+        btnBack2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack2ActionPerformed(evt);
+            }
+        });
+        add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 50, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/BusinessAdmin/Background.jpg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 1100));
@@ -310,13 +312,6 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnCreateUserActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        container.remove(this);
-        CardLayout layout = (CardLayout) container.getLayout();
-        layout.previous(container);
-    }//GEN-LAST:event_btnBackActionPerformed
-
     private void cmbEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEmployeeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbEmployeeActionPerformed
@@ -331,8 +326,15 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_orgCmbBoxActionPerformed
 
+    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
+
+        container.remove(this);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.previous(container);
+    }//GEN-LAST:event_btnBack2ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnBack2;
     private javax.swing.JButton btnCreateUser;
     private javax.swing.JComboBox cmbEmployee;
     private javax.swing.JComboBox cmbRoles;
