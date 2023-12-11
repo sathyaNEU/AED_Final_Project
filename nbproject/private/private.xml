@@ -3,14 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/programming/NetBeansProjects/Base_Final_Project_AED/src/business/Organization/AppLogEmpOrganization.java</file>
-            <file>file:/D:/programming/NetBeansProjects/Base_Final_Project_AED/src/business/Organization/CargoOrganization.java</file>
-            <file>file:/D:/programming/NetBeansProjects/Base_Final_Project_AED/src/business/Organization/AAOrganization.java</file>
-            <file>file:/D:/programming/NetBeansProjects/Base_Final_Project_AED/src/business/Organization/PackagingOrganization.java</file>
-            <file>file:/D:/programming/NetBeansProjects/Base_Final_Project_AED/src/business/Organization/OGLogAdminOrganization.java</file>
-            <file>file:/D:/programming/NetBeansProjects/Base_Final_Project_AED/src/business/Role/AppLogEmpRole.java</file>
-            <file>file:/D:/programming/NetBeansProjects/Base_Final_Project_AED/src/business/Organization/OGLogEmpOrganization.java</file>
-            <file>file:/D:/programming/NetBeansProjects/Base_Final_Project_AED/src/business/Organization/OrganizationDirectory.java</file>
+            <file>file:/Users/thivya/Desktop/AED%20Project/AED_Final_Project/src/ui/AdministrativeRole/ManageUserAccountJPanel.java</file>
+            <file>file:/Users/thivya/Desktop/AED%20Project/AED_Final_Project/src/ui/AdministrativeRole/ManageOrganizationJPanel.java</file>
+            <file>file:/Users/thivya/Desktop/AED%20Project/AED_Final_Project/src/ui/MainScreen.java</file>
+            <file>file:/Users/thivya/Desktop/AED%20Project/AED_Final_Project/src/ui/AdministrativeRole/AdminWorkAreaJPanel.java</file>
+            <file>file:/Users/thivya/Desktop/AED%20Project/AED_Final_Project/src/ui/signin.png</file>
+            <file>file:/Users/thivya/Desktop/AED%20Project/AED_Final_Project/src/ui/MainJFrame.java</file>
+            <file>file:/Users/thivya/Desktop/AED%20Project/AED_Final_Project/src/ui/AARole/AAWorkArea.java</file>
+            <file>file:/Users/thivya/Desktop/AED%20Project/AED_Final_Project/src/ui/AdministrativeRole/ManageEmployeeJPanel.java</file>
+            <file>file:/Users/thivya/Desktop/AED%20Project/AED_Final_Project/src/ui/LoginScreen.java</file>
         </group>
     </open-files>
 </project-private>

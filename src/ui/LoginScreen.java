@@ -49,34 +49,35 @@ public class LoginScreen extends javax.swing.JPanel {
         pwdField = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setText("WELCOME TO SERVICE");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 50));
+        lblTitle.setText("WELCOME TO LOGISTICS SERVICE");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 440, 50));
 
         lblUser.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblUser.setForeground(new java.awt.Color(255, 255, 255));
         lblUser.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblUser.setText("USERNAME");
-        add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 170, -1));
+        add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 170, -1));
 
         lblPassword.setBackground(new java.awt.Color(255, 255, 255));
         lblPassword.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPassword.setText("PASSWORD");
-        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 140, -1));
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 140, -1));
 
         txtUserName.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 200, 40));
+        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 230, 200, 40));
 
         pwdField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        add(pwdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 200, 40));
+        add(pwdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 330, 200, 40));
 
         btnLogin.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnLogin.setText("LOGIN");
@@ -85,7 +86,7 @@ public class LoginScreen extends javax.swing.JPanel {
                 btnLoginActionPerformed(evt);
             }
         });
-        add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 110, 40));
+        add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 450, 110, 40));
 
         jToggleButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jToggleButton1.setText("CUSTOMER SIGNUP");
@@ -94,11 +95,15 @@ public class LoginScreen extends javax.swing.JPanel {
                 jToggleButton1ActionPerformed(evt);
             }
         });
-        add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 170, 40));
+        add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, 170, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/login.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/loginimg.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 230, 240));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/background.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 1080));
+        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -20, 1510, 1120));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
@@ -146,6 +151,7 @@ public class LoginScreen extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblTitle;

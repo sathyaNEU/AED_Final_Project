@@ -39,6 +39,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         lblTitle = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(null);
 
         userJButton.setText("Manage Users");
         userJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -46,6 +47,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 userJButtonActionPerformed(evt);
             }
         });
+        add(userJButton);
+        userJButton.setBounds(37, 158, 159, 23);
 
         manageEmployeeJButton.setText("Manage Employees");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -53,6 +56,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageEmployeeJButtonActionPerformed(evt);
             }
         });
+        add(manageEmployeeJButton);
+        manageEmployeeJButton.setBounds(37, 117, 159, 23);
 
         manageOrganizationJButton.setText("Manage Organizations");
         manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -60,39 +65,13 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
+        add(manageOrganizationJButton);
+        manageOrganizationJButton.setBounds(37, 76, 159, 23);
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblTitle.setText("Administrative Work Area");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(manageEmployeeJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageOrganizationJButton)
-                    .addComponent(userJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTitle))
-                .addContainerGap(318, Short.MAX_VALUE))
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {manageEmployeeJButton, manageOrganizationJButton, userJButton});
-
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(lblTitle)
-                .addGap(31, 31, 31)
-                .addComponent(manageOrganizationJButton)
-                .addGap(18, 18, 18)
-                .addComponent(manageEmployeeJButton)
-                .addGap(18, 18, 18)
-                .addComponent(userJButton)
-                .addContainerGap(215, Short.MAX_VALUE))
-        );
+        add(lblTitle);
+        lblTitle.setBounds(37, 29, 170, 16);
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed

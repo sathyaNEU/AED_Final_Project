@@ -54,8 +54,11 @@ public class AAWorkArea extends javax.swing.JPanel {
         btnProcess = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblTitle.setText("Airport Authority ( CUSTOMS ) Support Work Area");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 61, -1, -1));
 
         btnBack2.setText("<< Back");
         btnBack2.addActionListener(new java.awt.event.ActionListener() {
@@ -63,6 +66,7 @@ public class AAWorkArea extends javax.swing.JPanel {
                 btnBack2ActionPerformed(evt);
             }
         });
+        add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
         tblWorkRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -92,12 +96,15 @@ public class AAWorkArea extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblWorkRequests);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 112, 623, 171));
+
         btnAssign.setText("Assign to me");
         btnAssign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignActionPerformed(evt);
             }
         });
+        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 301, -1, -1));
 
         btnProcess.setText("Process");
         btnProcess.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +112,7 @@ public class AAWorkArea extends javax.swing.JPanel {
                 btnProcessActionPerformed(evt);
             }
         });
+        add(btnProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 301, -1, -1));
 
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -112,51 +120,7 @@ public class AAWorkArea extends javax.swing.JPanel {
                 btnRefreshActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(64, 64, 64)
-                                .addComponent(lblTitle)
-                                .addGap(214, 214, 214)
-                                .addComponent(btnRefresh))
-                            .addComponent(btnBack2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(btnAssign)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnProcess)
-                        .addGap(300, 300, 300)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBack2)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTitle)
-                    .addComponent(btnRefresh))
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAssign)
-                    .addComponent(btnProcess))
-                .addContainerGap(55, Short.MAX_VALUE))
-        );
+        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(612, 58, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
