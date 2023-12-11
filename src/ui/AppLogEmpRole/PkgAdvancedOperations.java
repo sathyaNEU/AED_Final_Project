@@ -8,6 +8,7 @@ import business.Business;
 import business.Enterprise.AppLogBusiness.Pkg;
 import business.Organization.Organization;
 import business.UserAccount.UserAccount;
+import business.WorkQueue.CargoWorkRequest;
 import business.WorkQueue.CustomsWorkRequest;
 import java.awt.CardLayout;
 import java.util.Date;
@@ -72,6 +73,11 @@ public class PkgAdvancedOperations extends javax.swing.JPanel {
         });
 
         jButton2.setText("Move to Shipping");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Owner");
 
@@ -155,6 +161,25 @@ public class PkgAdvancedOperations extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBack2ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+      if(this.pkg.getStatus()==6){
+        CargoWorkRequest cargoWorkRequest = new CargoWorkRequest();
+        cargoWorkRequest.setSender(account);
+        cargoWorkRequest.setStatus("Sent");
+        cargoWorkRequest.setMessage("Requesting for Shipping Details");
+        cargoWorkRequest.setRequestDate(new Date());
+        cargoWorkRequest.setPkg(this.pkg);
+        cargoWorkRequest.getPkg().setStatus(5);
+        this.business.getCargoOrganization().getWorkQueue().getWorkRequestList().add(cargoWorkRequest);
+        this.account.getWorkQueue().getWorkRequestList().add(cargoWorkRequest);
+        JOptionPane.showMessageDialog(this, "Work Request Sent");
+        }
+        else
+            ErrorHelper.ErrorHelper.showError("The package is not authorized to move forward");
+  
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,12 +4,14 @@
  */
 package business;
 
+import business.CargoEnterprise.AirlinesSchedule;
 import business.Enterprise.AppLogBusiness.DailyPricing;
 import business.Enterprise.AppLogBusiness.DailyPricingList;
 import business.Enterprise.AppLogBusiness.PackageList;
 import business.Enterprise.AppLogBusiness.sItemList;
 import business.Organization.Organization;
 import business.Organization.OrganizationDirectory;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,7 +23,17 @@ public class Business {
     private OrganizationDirectory organizationDirectory;
     private DailyPricingList dailyPricingList;
     private PackageList packageList;
+    private ArrayList<AirlinesSchedule> airScheduleList;
 
+    public ArrayList<AirlinesSchedule> getAirScheduleList() {
+        return airScheduleList;
+    }
+
+    public void setAirScheduleList(ArrayList<AirlinesSchedule> airScheduleList) {
+        this.airScheduleList = airScheduleList;
+    }
+
+    
     public PackageList getPackageList() {
         return packageList;
     }
@@ -84,6 +96,15 @@ public class Business {
         public Organization getAAOrganization() {
         for (Organization org : getOrganizationDirectory().getOrganizationList()) {
             if (org.getName().equals(Organization.Type.AA.getValue())) {
+                return org;
+            }
+        }
+        return null;
+    }
+        
+    public Organization getCargoOrganization() {
+        for (Organization org : getOrganizationDirectory().getOrganizationList()) {
+            if (org.getName().equals(Organization.Type.Cargo.getValue())) {
                 return org;
             }
         }

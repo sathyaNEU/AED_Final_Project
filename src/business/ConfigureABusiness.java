@@ -4,6 +4,7 @@
  */
 package business;
 
+import business.CargoEnterprise.AirlinesSchedule;
 import business.Employee.Employee;
 import business.Enterprise.AppLogBusiness.DailyPricingList;
 import business.Enterprise.AppLogBusiness.Item;
@@ -16,10 +17,16 @@ import business.Role.AARole;
 import business.Role.AdminRole;
 import business.Role.AppLogEmpRole;
 import business.Role.BusinessAdminRole;
+import business.Role.CargoAdminRole;
 import business.Role.CustomerRole;
 import business.UserAccount.UserAccount;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -88,6 +95,64 @@ public class ConfigureABusiness {
         AAOrg.getEmployeeDirectory().getEmployeeList().add(employee4);
         AAOrg.getUserAccountDirectory().getUserAccountList().add(account4);
 
+        Organization CargoOrg = business.getOrganizationDirectory().createOrganization(Organization.Type.Cargo); 
+        Employee employee5 = new Employee();
+        employee5.setName("Arial");
+        UserAccount account5 = new UserAccount();
+        account5.setUsername("ca");
+        account5.setPassword("aA123456");
+        account5.setRole(new CargoAdminRole());
+        account5.setEmployee(employee5);
+        AAOrg.getEmployeeDirectory().getEmployeeList().add(employee5);
+        AAOrg.getUserAccountDirectory().getUserAccountList().add(account5);
+        
+        ArrayList<AirlinesSchedule> airScheduleList = new ArrayList<>();
+        
+        BufferedReader file_content = null;
+        String file_path = "src//Project_Files//airlines_schedule.csv";
+        String currentLine="";
+        String arg1;
+        String arg2;
+        String arg3;
+        String arg4;
+        String arg5;
+        String arg6;
+        int arg7;
+        try{
+            file_content = new BufferedReader(new FileReader(file_path));
+            while((currentLine=file_content.readLine())!=null){
+                String[] split_str = currentLine.split(",");
+                arg1 = split_str[0];
+                arg2 = split_str[1];
+                arg3 = split_str[2];
+                arg4 = split_str[3];
+                arg5 = split_str[4];
+                arg6 = split_str[5];
+                arg7 = Integer.parseInt(split_str[6]);
+                AirlinesSchedule as = new AirlinesSchedule();
+                as.setAirline(arg1);
+                as.setFlight_id(arg2);
+                as.setStart_time(arg3);
+                as.setDept_airport(arg4);
+                as.setArr_time(arg5);
+                as.setArr_airport(arg6);
+                as.setSpots(arg7);
+                airScheduleList.add(as);
+            }
+            
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                file_content.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        
+        business.setAirScheduleList(airScheduleList);
         
         DailyPricingList dailyPricingList = new DailyPricingList();
         business.setDailyPricingList(dailyPricingList);

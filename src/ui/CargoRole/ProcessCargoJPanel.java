@@ -6,7 +6,10 @@ package ui.CargoRole;
 
 import ui.AppLogEmpRole.*;
 import business.Business;
+import business.Organization.Organization;
+import business.UserAccount.UserAccount;
 import business.WorkQueue.AssignEmpWorkRequest;
+import business.WorkQueue.CargoWorkRequest;
 import business.WorkQueue.PackingRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -21,17 +24,21 @@ import javax.swing.JPanel;
 public class ProcessCargoJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
-    AssignEmpWorkRequest request;
+    CargoWorkRequest request;
     Business business;
+    UserAccount account;
+    Organization organization;
 
     /**
      * Creates new form ProcessWorkRequestJPanel
      */
-    public ProcessCargoJPanel(JPanel userProcessContainer, AssignEmpWorkRequest request, Business business) {
+    public ProcessCargoJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Business business, CargoWorkRequest request) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.request = request;
         this.business = business;
+        this.organization = organization;
+        this.account = account;
     }
 
     /**
@@ -44,8 +51,6 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnSubmit = new javax.swing.JButton();
-        lblResult = new javax.swing.JLabel();
-        txtResults = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
 
@@ -57,9 +62,6 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
                 btnSubmitActionPerformed(evt);
             }
         });
-
-        lblResult.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblResult.setText("Result:");
 
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -78,14 +80,12 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblResult)
                     .addComponent(btnSubmit)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnBack)
                         .addGap(33, 33, 33)
-                        .addComponent(lblTitle))
-                    .addComponent(txtResults, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(450, Short.MAX_VALUE))
+                        .addComponent(lblTitle)))
+                .addContainerGap(519, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,11 +94,7 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
                     .addComponent(lblTitle))
-                .addGap(76, 76, 76)
-                .addComponent(lblResult)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(142, 142, 142)
                 .addComponent(btnSubmit)
                 .addContainerGap(269, Short.MAX_VALUE))
         );
@@ -117,36 +113,15 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        if (request.getPkg().getStatus() == 0) {
-            request.setResult(txtResults.getText());
-            request.setResolveDate(new Date());
-            request.setStatus("Completed");
-            request.getPkg().setStatus(1);
-            JOptionPane.showMessageDialog(null, "Request processed");
-        } else if (request.getPkg().getStatus() == 2) {
-            PackingRequest packingRequest = new PackingRequest();
-            packingRequest.setPrevReq(request);
-            packingRequest.setPkg(request.getPkg());
-            packingRequest.setSender(request.getReceiver());
-            packingRequest.setStatus("Sent");
-            packingRequest.setMessage("CONFIGURE");
-            packingRequest.setRequestDate(new Date());
-            request.getReceiver().getWorkQueue().getWorkRequestList().add(packingRequest);
-            this.business.getPackagingOrganization().getWorkQueue().getWorkRequestList().add(packingRequest);
-            JOptionPane.showMessageDialog(this, "Request forwarded to Packaging Organization");
-
-            request.setResult("Your Package is now being processed by the packaging agent");
-            request.setStatus("Completed");
-            request.getPkg().setStatus(3);
-        }
+    
+        this.request.setResult("Airlines associated");
+        this.request.getPkg().setStatus(7);
 
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSubmit;
-    private javax.swing.JLabel lblResult;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTextField txtResults;
     // End of variables declaration//GEN-END:variables
 }
