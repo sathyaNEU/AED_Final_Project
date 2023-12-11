@@ -129,9 +129,9 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(rejectbtn))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
+                        .addGap(161, 161, 161)
                         .addComponent(saveBtn)))
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(302, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,9 +146,9 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(acceptBtn)
                     .addComponent(rejectbtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
                 .addComponent(saveBtn)
-                .addGap(49, 49, 49))
+                .addContainerGap(467, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

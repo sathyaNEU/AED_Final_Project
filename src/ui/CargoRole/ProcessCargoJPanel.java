@@ -6,6 +6,7 @@ package ui.CargoRole;
 
 import ui.AppLogEmpRole.*;
 import business.Business;
+import business.CargoEnterprise.AirlinesSchedule;
 import business.Organization.Organization;
 import business.UserAccount.UserAccount;
 import business.WorkQueue.AssignEmpWorkRequest;
@@ -13,9 +14,12 @@ import business.WorkQueue.CargoWorkRequest;
 import business.WorkQueue.PackingRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import ErrorHelper.ErrorHelper;
 
 /**
  *
@@ -28,6 +32,9 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
     Business business;
     UserAccount account;
     Organization organization;
+    float weight;
+    int spot;
+    ArrayList<AirlinesSchedule> as;
 
     /**
      * Creates new form ProcessWorkRequestJPanel
@@ -39,6 +46,21 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
         this.business = business;
         this.organization = organization;
         this.account = account;
+        this.weight = this.request.getPkg().getWeight();
+        this.as = this.business.getAirScheduleList();
+        if(this.weight<=20)
+            this.spot = 1;
+        else if(this.weight>20 && this.weight<=40)
+            this.spot = 2;
+        else if(this.weight>40 && this.weight<=60)
+            this.spot = 3;
+        else
+            this.spot = 4;
+        this.pkgTextField.setText(String.valueOf(this.request.getPkg().getPackage_id()));
+        this.logEmpTextField.setText(this.request.getSender().getEmployee().getName());
+        this.spotsTextField.setText(String.valueOf(this.spot));
+        populateTbl();
+            
     }
 
     /**
@@ -53,10 +75,18 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
         btnSubmit = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        airlinesTbl = new javax.swing.JTable();
+        pkgTextField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        logEmpTextField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        spotsTextField = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        btnSubmit.setText("Submit Result");
+        btnSubmit.setText("Book and Complete Request");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
@@ -73,19 +103,63 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         lblTitle.setText("Result Submission");
 
+        airlinesTbl.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Airlines", "Flight ID", "DEPT Time", "DEPT Airport", "ARR Time", "ARR Airport", "SPOTS"
+            }
+        ));
+        jScrollPane1.setViewportView(airlinesTbl);
+
+        pkgTextField.setEditable(false);
+
+        jLabel1.setText("Package ID");
+
+        logEmpTextField.setEditable(false);
+
+        jLabel2.setText("Support Executive");
+
+        spotsTextField.setEditable(false);
+
+        jLabel3.setText("Spots");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSubmit)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
                         .addComponent(btnBack)
                         .addGap(33, 33, 33)
-                        .addComponent(lblTitle)))
-                .addContainerGap(519, Short.MAX_VALUE))
+                        .addComponent(lblTitle))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSubmit)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(spotsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(pkgTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(55, 55, 55)
+                                        .addComponent(jLabel2)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(logEmpTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,9 +168,21 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
                     .addComponent(lblTitle))
-                .addGap(142, 142, 142)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pkgTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logEmpTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spotsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
                 .addComponent(btnSubmit)
-                .addContainerGap(269, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -113,15 +199,49 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-    
-        this.request.setResult("Airlines associated");
-        this.request.getPkg().setStatus(7);
+        
+        int index = this.airlinesTbl.getSelectedRow();
+        if(index==-1)
+            ErrorHelper.showWarning("Row not Selected");
+        else{
+            AirlinesSchedule schedule = (AirlinesSchedule) this.airlinesTbl.getValueAt(index, 0);
+            schedule.setSpots(schedule.getSpots()-this.spot);
+            this.request.setResult("Airlines associated");
+            this.request.getPkg().setStatus(7);
+            this.request.setResolveDate(new Date());
+        }
+        
+
 
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable airlinesTbl;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSubmit;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JTextField logEmpTextField;
+    private javax.swing.JTextField pkgTextField;
+    private javax.swing.JTextField spotsTextField;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTbl() {
+        DefaultTableModel dtm = (DefaultTableModel)this.airlinesTbl.getModel();
+        dtm.setRowCount(0);
+        for(AirlinesSchedule schedule : this.as){
+            Object[] obj = new Object[7];
+            obj[0] = schedule;
+            obj[1] = schedule.getFlight_id();
+            obj[2] = schedule.getStart_time();
+            obj[3] = schedule.getDept_airport();
+            obj[4] = schedule.getArr_time();
+            obj[5] = schedule.getArr_airport();
+            obj[6] = String.valueOf(schedule.getSpots());
+            dtm.addRow(obj);
+        }
+    }
 }

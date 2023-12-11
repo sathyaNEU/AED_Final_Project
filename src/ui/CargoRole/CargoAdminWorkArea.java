@@ -186,10 +186,11 @@ public class CargoAdminWorkArea extends javax.swing.JPanel {
     private void btnProcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessActionPerformed
 
         int selectedRow = tblWorkRequests.getSelectedRow();
-
-        if (selectedRow >= 0) {
-//           
-
+        CargoWorkRequest request = (CargoWorkRequest)this.tblWorkRequests.getValueAt(selectedRow, 0);
+        if (selectedRow >= 0) {          
+            ProcessCargoJPanel processCargoJPanel = new ProcessCargoJPanel(userProcessContainer, account, organization, business, request);
+            processCargoJPanel.add("processCargoJPanel",processCargoJPanel);
+            ((CardLayout)this.userProcessContainer.getLayout()).next(this.userProcessContainer);
         } else {
             JOptionPane.showMessageDialog(null, "Please select a request message to process.");
             return;

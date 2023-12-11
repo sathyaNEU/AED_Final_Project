@@ -19,6 +19,7 @@ import business.Role.AppLogEmpRole;
 import business.Role.BusinessAdminRole;
 import business.Role.CargoAdminRole;
 import business.Role.CustomerRole;
+import business.Role.PackagerRole;
 import business.UserAccount.UserAccount;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -105,6 +106,17 @@ public class ConfigureABusiness {
         account5.setEmployee(employee5);
         AAOrg.getEmployeeDirectory().getEmployeeList().add(employee5);
         AAOrg.getUserAccountDirectory().getUserAccountList().add(account5);
+        
+        Organization PackOrg = business.getOrganizationDirectory().createOrganization(Organization.Type.Packaging); 
+        Employee employee6 = new Employee();
+        employee6.setName("Richard Packer");
+        UserAccount account6 = new UserAccount();
+        account6.setUsername("pa");
+        account6.setPassword("aA123456");
+        account6.setRole(new PackagerRole());
+        account6.setEmployee(employee6);
+        PackOrg.getEmployeeDirectory().getEmployeeList().add(employee6);
+        PackOrg.getUserAccountDirectory().getUserAccountList().add(account6);
         
         ArrayList<AirlinesSchedule> airScheduleList = new ArrayList<>();
         

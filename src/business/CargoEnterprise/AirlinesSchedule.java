@@ -73,5 +73,9 @@ public class AirlinesSchedule {
         this.spots = spots;
     }
     
+    public String toString(){
+        return this.airline;
+    }
+    
     
 }
