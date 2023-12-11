@@ -104,8 +104,8 @@ public class ConfigureABusiness {
         account5.setPassword("aA123456");
         account5.setRole(new CargoAdminRole());
         account5.setEmployee(employee5);
-        AAOrg.getEmployeeDirectory().getEmployeeList().add(employee5);
-        AAOrg.getUserAccountDirectory().getUserAccountList().add(account5);
+        CargoOrg.getEmployeeDirectory().getEmployeeList().add(employee5);
+        CargoOrg.getUserAccountDirectory().getUserAccountList().add(account5);
         
         Organization PackOrg = business.getOrganizationDirectory().createOrganization(Organization.Type.Packaging); 
         Employee employee6 = new Employee();

@@ -5,6 +5,7 @@
 package ui.AppLogEmpRole;
 
 import business.Business;
+import business.UserAccount.UserAccount;
 import business.WorkQueue.AssignEmpWorkRequest;
 import business.WorkQueue.PackingRequest;
 import java.awt.CardLayout;
@@ -22,15 +23,17 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     AssignEmpWorkRequest request;
     Business business;
+    UserAccount account;
 
     /**
      * Creates new form ProcessWorkRequestJPanel
      */
-    public ProcessWorkRequestJPanel(JPanel userProcessContainer, AssignEmpWorkRequest request, Business business) {
+    public ProcessWorkRequestJPanel(JPanel userProcessContainer, AssignEmpWorkRequest request, Business business, UserAccount account) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.request = request;
         this.business = business;
+        this.account = account;
     }
 
     /**
@@ -134,7 +137,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
             this.business.getPackagingOrganization().getWorkQueue().getWorkRequestList().add(packingRequest);
             JOptionPane.showMessageDialog(this, "Request forwarded to Packaging Organization");
 
-            request.setResult("Your Package is now being processed by the packaging agent");
+            request.setResult("Package is now being processed by the packaging agent");
             request.setStatus("Completed");
             request.getPkg().setStatus(3);
         }

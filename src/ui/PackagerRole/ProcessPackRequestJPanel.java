@@ -104,6 +104,7 @@ public class ProcessPackRequestJPanel extends javax.swing.JPanel {
         
         this.request.getPkg().setStatus(4);
         this.request.setResolveDate(new Date());
+        this.request.getPrevReq().setResult("Packed and sent back to the logistics enterprise");
         this.request.setResult("Packed and sent back to the logistics enterprise");
         this.request.getPrevReq().setResult("Packing Complete, in hold with logistic support team");
         this.request.setStatus("Completed");

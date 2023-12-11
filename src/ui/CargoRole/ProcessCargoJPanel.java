@@ -209,6 +209,9 @@ public class ProcessCargoJPanel extends javax.swing.JPanel {
             this.request.setResult("Airlines associated");
             this.request.getPkg().setStatus(7);
             this.request.setResolveDate(new Date());
+            populateTbl();
+            JOptionPane.showMessageDialog(this, "Shipment Scheduled Successfully");
+            
         }
         
 

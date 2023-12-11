@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package business.Organization;
-
-import business.Role.LabAssistantRole;
 import business.Role.OGLogAdminRole;
 import business.Role.Role;
 import java.util.ArrayList;

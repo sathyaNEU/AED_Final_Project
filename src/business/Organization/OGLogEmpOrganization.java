@@ -4,7 +4,6 @@
  */
 package business.Organization;
 
-import business.Role.LabAssistantRole;
 import business.Role.OGLogEmpRole;
 import business.Role.Role;
 import java.util.ArrayList;

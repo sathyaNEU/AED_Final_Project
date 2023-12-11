@@ -34,7 +34,8 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
     CustomsWorkRequest request;
     Pkg pkg;
     ArrayList<Item> items;
-    
+    String rejectedItems;
+
     public ValidateItemsJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Business business, CustomsWorkRequest request) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -153,7 +154,7 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
-        
+
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
@@ -164,23 +165,39 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
         boolean canContinue = checkIfActionsPerformed();
         if (canContinue) {
             this.pkg.setStatus(6);
+            getRejectedItems();
+            this.request.setResult(rejectedItems);
             this.request.setStatus("Completed");
             this.request.setResolveDate(new Date());
             JOptionPane.showMessageDialog(this, "Response forwarded back to logistic enterprise");
         } else {
             ErrorHelper.showError("Items not thoroughly reviewed");
         }
-        
+
 
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void acceptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnActionPerformed
         // TODO add your handling code here:
-        
+        int index = itemsTbl.getSelectedRow();
+        if (index == -1) {
+            ErrorHelper.showWarning("Row not selected");
+        } else {
+            this.items.get(index).setStatus("Accepted");
+            populateTable();
+        }
+
     }//GEN-LAST:event_acceptBtnActionPerformed
 
     private void rejectbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejectbtnActionPerformed
         // TODO add your handling code here:
+        int index = itemsTbl.getSelectedRow();
+        if (index == -1)
+            ErrorHelper.showWarning("Row not selected");
+        else {
+            this.items.get(index).setStatus("Rejected");
+            populateTable();
+        }
     }//GEN-LAST:event_rejectbtnActionPerformed
 
 
@@ -195,16 +212,16 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     public void populateTable() {
-        DefaultTableModel dtm = (DefaultTableModel)this.itemsTbl.getModel();
+        DefaultTableModel dtm = (DefaultTableModel) this.itemsTbl.getModel();
         dtm.setRowCount(0);
         for (Item item : this.items) {
             Object[] obj = new Object[2];
             obj[0] = item.getItem();
-            obj[1] = String.valueOf("No Actions Performed");
+            obj[1] = item.getStatus()==null?"No Actions Performed":item.getStatus();
             dtm.addRow(obj);
         }
     }
-    
+
     private boolean checkIfActionsPerformed() {
         int counter = 0;
         for (Item item : this.items) {
@@ -216,5 +233,22 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
             return true;
         }
         return false;
+    }
+
+    private void getRejectedItems() {
+        this.rejectedItems="";
+        for (Item item : this.items) {
+            if (item.getStatus().equalsIgnoreCase("Rejected")) {
+                this.rejectedItems = this.rejectedItems.concat(item.getItem()).concat(" , ");
+            }
+        }
+        if (this.rejectedItems == null) {
+            this.rejectedItems = "Customs Cleared";
+        } else {
+            String x="Customs Cleared with following Items discarded";
+            this.rejectedItems = x.concat(rejectedItems);
+            this.rejectedItems.substring(0, this.rejectedItems.length() - 2);
+        }
+        System.out.println(this.rejectedItems);
     }
 }

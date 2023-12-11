@@ -212,7 +212,7 @@ public class AppLogEmpWorkArea extends javax.swing.JPanel {
 
             request.setStatus("Processing");
 
-            ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, request, this.business);
+            ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, request, this.business, this.account);
             userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);

@@ -6,13 +6,10 @@ package business.Role;
 
 import business.Business;
 import business.Organization.AppLogEmpOrganization;
-import business.Organization.DoctorOrganization;
 import business.Organization.Organization;
 import business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import ui.AppLogEmpRole.AppLogEmpWorkArea;
-import ui.DoctorRole.DoctorWorkAreaJPanel;
-
 /**
  *
  * @author Sathya

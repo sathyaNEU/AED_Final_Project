@@ -94,8 +94,10 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         lblUsersList = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -125,6 +127,8 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
             tblUsers.getColumnModel().getColumn(0).setResizable(false);
             tblUsers.getColumnModel().getColumn(1).setResizable(false);
         }
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 331, 296));
 
         grpNewUser.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -220,8 +224,10 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnCreateUser)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
+
+        add(grpNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, -1, -1));
 
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -229,53 +235,31 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 51, -1, -1));
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Manage Users");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 110, 30));
 
         lblUsersList.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblUsersList.setForeground(new java.awt.Color(255, 255, 255));
         lblUsersList.setText("Users List:");
+        add(lblUsersList, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 80, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUsersList)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(grpNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblTitle)))
-                .addContainerGap(175, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(lblTitle))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblUsersList)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(grpNewUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/BusinessAdmin/login.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-84, -20, 2390, 1120));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateUserActionPerformed
         String userName = txtUserName.getText();
         String password = txtPassword.getText();
+        int res = validateCredentials( userName, password);       
+         if (res == -1)
+            JOptionPane.showMessageDialog(this, "Username or password cannot be empty", "ERROR", JOptionPane.ERROR_MESSAGE);
+        else {
+            if(validatePwd(password)){
         Employee employee = (Employee) cmbEmployee.getSelectedItem();
         Role role = (Role) cmbRoles.getSelectedItem();
         this.organization = (Organization)orgCmbBox.getSelectedItem();
@@ -292,6 +276,10 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
         }
         else
             ErrorHelper.showError("Org Not found");
+            }
+        else
+               JOptionPane.showMessageDialog(this, "Password must contain alteast 8 characters, one upper case\none lower case and one digit", "WARNING", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnCreateUserActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -321,6 +309,7 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox cmbEmployee;
     private javax.swing.JComboBox cmbRoles;
     private javax.swing.JPanel grpNewUser;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCreateUser;
     private javax.swing.JLabel lblEmployee;
@@ -335,6 +324,19 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
+private int validateCredentials(String userName, String password) {
+
+        if (userName.isBlank() || password.isBlank()) {
+            return -1;
+        } else {
+            return 1;
+        }
+    }
+
+    private boolean validatePwd(String pwd) {
+        return pwd.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$");
+
+    }
 
     private void populateOrgCmbBox() {
         orgCmbBox.removeAllItems();

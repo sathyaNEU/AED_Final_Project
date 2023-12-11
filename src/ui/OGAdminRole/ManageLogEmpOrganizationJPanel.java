@@ -83,8 +83,10 @@ public class ManageLogEmpOrganizationJPanel extends javax.swing.JPanel {
         lblTitle = new javax.swing.JLabel();
         lblOrganizationList = new javax.swing.JLabel();
         lblOrganizationAdd = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblOrganizations.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,75 +120,53 @@ public class ManageLogEmpOrganizationJPanel extends javax.swing.JPanel {
             tblOrganizations.getColumnModel().getColumn(1).setResizable(false);
         }
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 480, 140));
+
+        btnAdd.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
+        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, 87, 30));
 
+        cmbOrganizations.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         cmbOrganizations.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        add(cmbOrganizations, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, 167, 30));
 
+        lblSelectOrgType.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblSelectOrgType.setForeground(new java.awt.Color(255, 255, 255));
         lblSelectOrgType.setText("Select Organization Type:");
+        add(lblSelectOrgType, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 200, 20));
 
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 36, -1, -1));
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Manage Organizations");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 220, 40));
 
-        lblOrganizationList.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblOrganizationList.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblOrganizationList.setForeground(new java.awt.Color(255, 255, 255));
         lblOrganizationList.setText("Organization List:");
+        add(lblOrganizationList, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 124, -1, 40));
 
-        lblOrganizationAdd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblOrganizationAdd.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblOrganizationAdd.setForeground(new java.awt.Color(255, 255, 255));
         lblOrganizationAdd.setText("Add Organization:");
+        add(lblOrganizationAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 354, 140, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblOrganizationAdd)
-                    .addComponent(lblOrganizationList)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addGap(29, 29, 29)
-                        .addComponent(lblTitle))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblSelectOrgType)
-                        .addGap(18, 18, 18)
-                        .addComponent(cmbOrganizations, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(275, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(lblTitle))
-                .addGap(32, 32, 32)
-                .addComponent(lblOrganizationList)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblOrganizationAdd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSelectOrgType)
-                    .addComponent(cmbOrganizations, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd))
-                .addContainerGap(223, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/OGAdminRole/login.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1500, 1120));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -213,6 +193,7 @@ public class ManageLogEmpOrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
     private javax.swing.JComboBox cmbOrganizations;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblOrganizationAdd;
     private javax.swing.JLabel lblOrganizationList;
