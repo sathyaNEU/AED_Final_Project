@@ -44,58 +44,49 @@ public class CustomerWorkArea extends javax.swing.JPanel {
         getQuoteBtn = new javax.swing.JToggleButton();
         orderHistoryBtn = new javax.swing.JButton();
         orderHistoryBtn1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        lblTitle.setText("Customer Work Area");
+        setForeground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getQuoteBtn.setText("Get Quote");
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("CUSTOMER WORK AREA");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 330, -1));
+
+        getQuoteBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        getQuoteBtn.setText("GET QUOTE");
         getQuoteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getQuoteBtnActionPerformed(evt);
             }
         });
+        add(getQuoteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 170, -1));
 
-        orderHistoryBtn.setText("Order History");
+        orderHistoryBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        orderHistoryBtn.setText("ORDER HISTORY");
         orderHistoryBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderHistoryBtnActionPerformed(evt);
             }
         });
+        add(orderHistoryBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
 
-        orderHistoryBtn1.setText("Manage Packages");
+        orderHistoryBtn1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        orderHistoryBtn1.setText("MANAGE PACKAGES");
         orderHistoryBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderHistoryBtn1ActionPerformed(evt);
             }
         });
+        add(orderHistoryBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 230, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(getQuoteBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(orderHistoryBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(orderHistoryBtn1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(632, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(lblTitle)
-                .addGap(27, 27, 27)
-                .addComponent(getQuoteBtn)
-                .addGap(33, 33, 33)
-                .addComponent(orderHistoryBtn)
-                .addGap(32, 32, 32)
-                .addComponent(orderHistoryBtn1)
-                .addContainerGap(593, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/Customer/cust4.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 420, 360));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/Customer/Background.jpg"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 1100));
     }// </editor-fold>//GEN-END:initComponents
 
     private void getQuoteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getQuoteBtnActionPerformed
@@ -122,6 +113,8 @@ public class CustomerWorkArea extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton getQuoteBtn;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JButton orderHistoryBtn;
     private javax.swing.JButton orderHistoryBtn1;

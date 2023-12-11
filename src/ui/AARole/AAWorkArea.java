@@ -53,6 +53,7 @@ public class AAWorkArea extends javax.swing.JPanel {
         btnAssign = new javax.swing.JButton();
         btnProcess = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -60,7 +61,7 @@ public class AAWorkArea extends javax.swing.JPanel {
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("AIRPORT AUTHORITY ( CUSTOMS ) SUPPORT WORK AREA");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, -1, -1));
 
         btnBack2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         btnBack2.setText("<< BACK");
@@ -100,7 +101,7 @@ public class AAWorkArea extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblWorkRequests);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 680, 220));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 680, 220));
 
         btnAssign.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         btnAssign.setText("ASSIGN TO ME");
@@ -109,7 +110,7 @@ public class AAWorkArea extends javax.swing.JPanel {
                 btnAssignActionPerformed(evt);
             }
         });
-        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 170, 40));
+        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 510, 170, 40));
 
         btnProcess.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         btnProcess.setText("PROCESS");
@@ -118,7 +119,7 @@ public class AAWorkArea extends javax.swing.JPanel {
                 btnProcessActionPerformed(evt);
             }
         });
-        add(btnProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 460, 120, 40));
+        add(btnProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 510, 120, 40));
 
         btnRefresh.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         btnRefresh.setText("REFRESH");
@@ -127,7 +128,10 @@ public class AAWorkArea extends javax.swing.JPanel {
                 btnRefreshActionPerformed(evt);
             }
         });
-        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 140, 120, 40));
+        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 170, 120, 40));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AARole/AAcargo.jpeg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 360, 240));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AARole/Background.jpg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 1100));
@@ -191,6 +195,7 @@ public class AAWorkArea extends javax.swing.JPanel {
     private javax.swing.JButton btnProcess;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblWorkRequests;

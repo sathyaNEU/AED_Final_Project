@@ -75,8 +75,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         lblTitle.setText("ADMINISTRATIVE WORK AREA");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 390, 50));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AdministrativeRole/adminworkarea.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 380, 340));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AdministrativeRole/workarea.jpeg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 380, 250));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AdministrativeRole/Background.jpg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 1100));

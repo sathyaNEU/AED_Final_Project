@@ -71,7 +71,11 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
         getQuoteBtn = new javax.swing.JButton();
         typeCmbBox = new javax.swing.JComboBox();
         proceedBtn = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -166,8 +170,20 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
         });
         add(proceedBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 620, 110, 40));
 
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/Customer/Box.jpeg"))); // NOI18N
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 420, 370, 240));
+
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/Customer/Background.jpg"))); // NOI18N
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, 1100));
+
+        jLabel9.setText("jLabel9");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, 150, 160));
+
+        jLabel10.setText("jLabel10");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 500, -1, -1));
+
+        jLabel12.setText("jLabel12");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 430, 250, 290));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
@@ -278,6 +294,9 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField expTotalChargesTextField;
     private javax.swing.JButton getQuoteBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -285,6 +304,7 @@ public class CustomerQuoteJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField priGstTextField;
     private javax.swing.JTextField priScTextField;
     private javax.swing.JTextField priTcTextField;

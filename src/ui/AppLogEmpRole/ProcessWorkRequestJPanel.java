@@ -50,6 +50,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         txtResults = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -62,15 +63,15 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                 btnSubmitActionPerformed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 180, 40));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 370, 180, 40));
 
         lblResult.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblResult.setForeground(new java.awt.Color(255, 255, 255));
         lblResult.setText("RESULT:");
-        add(lblResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 80, -1));
+        add(lblResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 210, 80, -1));
 
         txtResults.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        add(txtResults, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 340, 40));
+        add(txtResults, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 270, 340, 40));
 
         btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnBack.setText("<< BACK");
@@ -84,7 +85,10 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("RESULT SUBMISSION");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 290, 60));
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 290, 60));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AppLogEmpRole/result.jpeg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 570, 420));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AppLogEmpRole/Background.jpg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 1100));
@@ -132,6 +136,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblResult;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtResults;

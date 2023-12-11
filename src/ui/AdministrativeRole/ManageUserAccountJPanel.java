@@ -108,6 +108,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         lblUsersList = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -143,7 +144,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             tblUsers.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 331, 296));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 220, 331, 310));
 
         grpNewUser.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -270,7 +271,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
-        add(grpNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 230, -1, -1));
+        add(grpNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 220, -1, -1));
 
         btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         btnBack.setText("<< BACK");
@@ -284,15 +285,18 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("MANAGE USERS");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 220, 50));
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 110, 220, 50));
 
         lblUsersList.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblUsersList.setForeground(new java.awt.Color(255, 255, 255));
         lblUsersList.setText("USERS LIST:");
-        add(lblUsersList, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 130, 30));
+        add(lblUsersList, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 130, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AdministrativeRole/manageuser.jpeg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-360, 160, 880, 430));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AdministrativeRole/Background.jpg"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 1110));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1500, 1110));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateUserActionPerformed
@@ -353,6 +357,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox cmbRoles;
     private javax.swing.JPanel grpNewUser;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCreateUser;
     private javax.swing.JLabel lblEmployee;

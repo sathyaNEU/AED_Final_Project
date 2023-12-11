@@ -64,6 +64,7 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         itemsTbl = new javax.swing.JTable();
         rejectbtn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -125,6 +126,9 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
         });
         add(rejectbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, -1, 40));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AARole/cargoresponsibilty.jpeg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 290, 540, 370));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/AARole/Background.jpg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1530, 1110));
     }// </editor-fold>//GEN-END:initComponents
@@ -182,6 +186,7 @@ public class ValidateItemsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack2;
     private javax.swing.JTable itemsTbl;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JButton rejectbtn;

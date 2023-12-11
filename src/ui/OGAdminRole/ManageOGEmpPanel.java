@@ -66,36 +66,39 @@ public class ManageOGEmpPanel extends javax.swing.JPanel {
         tblEmployees = new javax.swing.JTable();
         lblEmployeeList = new javax.swing.JLabel();
         orgCmbBox = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
+        setToolTipText("");
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblOrganizationList1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblOrganizationList1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblOrganizationList1.setForeground(new java.awt.Color(255, 255, 255));
-        lblOrganizationList1.setText("New Employee:");
+        lblOrganizationList1.setText("NEW EMPLOYEE:");
         add(lblOrganizationList1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 387, -1, 30));
 
-        lblEmployeeName.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblEmployeeName.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblEmployeeName.setForeground(new java.awt.Color(255, 255, 255));
-        lblEmployeeName.setText("Name:");
-        add(lblEmployeeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 440, 50, -1));
+        lblEmployeeName.setText("NAME:");
+        add(lblEmployeeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, 100, -1));
 
         txtEmployeeName.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         add(txtEmployeeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 201, -1));
 
         btnCreateEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnCreateEmployee.setText("Create Employee");
+        btnCreateEmployee.setText("CREATE EMPLOYEE");
         btnCreateEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateEmployeeActionPerformed(evt);
             }
         });
-        add(btnCreateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 510, -1, -1));
+        add(btnCreateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, 180, -1));
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setText("Manage Employees");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 40, 220, -1));
+        lblTitle.setText("MANAGE EMPLOYEES");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 310, -1));
 
         btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnBack.setText("<< Back");
@@ -106,10 +109,10 @@ public class ManageOGEmpPanel extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 33, -1, -1));
 
-        lblOrganizationPicker.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblOrganizationPicker.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblOrganizationPicker.setForeground(new java.awt.Color(255, 255, 255));
-        lblOrganizationPicker.setText("Select Organization:");
-        add(lblOrganizationPicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
+        lblOrganizationPicker.setText("SELECT ORGANIZATION:");
+        add(lblOrganizationPicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, -1, -1));
 
         tblEmployees.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         tblEmployees.setModel(new javax.swing.table.DefaultTableModel(
@@ -142,10 +145,10 @@ public class ManageOGEmpPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 180, 480, 180));
 
-        lblEmployeeList.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblEmployeeList.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblEmployeeList.setForeground(new java.awt.Color(255, 255, 255));
-        lblEmployeeList.setText("Employee List:");
-        add(lblEmployeeList, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 87, 110, 40));
+        lblEmployeeList.setText("EMPLOYEE LIST:");
+        add(lblEmployeeList, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 160, 40));
 
         orgCmbBox.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         orgCmbBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -154,11 +157,18 @@ public class ManageOGEmpPanel extends javax.swing.JPanel {
                 orgCmbBoxActionPerformed(evt);
             }
         });
-        add(orgCmbBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 170, -1));
+        add(orgCmbBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 170, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/OGAdminRole/login.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 2580, 1120));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/OGAdminRole/Emp.jpeg"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 320, 250, 320));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/OGAdminRole/Background.jpg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 1100));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/OGAdminRole/Users.jpeg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 300, 170, 190));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEmployeeActionPerformed
@@ -193,7 +203,9 @@ public class ManageOGEmpPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreateEmployee;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEmployeeList;
     private javax.swing.JLabel lblEmployeeName;

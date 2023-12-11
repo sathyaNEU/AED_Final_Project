@@ -45,15 +45,11 @@ public class MainScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         splitPane = new javax.swing.JSplitPane();
         menuPanel = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
         btnLogOut = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/background.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -79,9 +75,9 @@ public class MainScreen extends javax.swing.JPanel {
             .addGroup(menuPanelLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 334, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1026, Short.MAX_VALUE)
                 .addComponent(btnLogOut)
-                .addGap(60, 60, 60))
+                .addGap(84, 84, 84))
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +109,6 @@ public class MainScreen extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogOut;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JSplitPane splitPane;

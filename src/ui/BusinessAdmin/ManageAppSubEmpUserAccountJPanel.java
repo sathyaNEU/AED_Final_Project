@@ -94,6 +94,7 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         lblUsersList = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -129,7 +130,7 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
             tblUsers.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 360, 330));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 360, 330));
 
         grpNewUser.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -245,13 +246,13 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
                         .addComponent(lblPassword))
                     .addGroup(grpNewUserLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)))
+                        .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        add(grpNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, 360, 330));
+        add(grpNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 180, 360, 350));
 
         btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         btnBack.setText("<< BACK");
@@ -265,12 +266,15 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("MANAGE USERS");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 260, 30));
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 50, 260, 30));
 
         lblUsersList.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblUsersList.setForeground(new java.awt.Color(255, 255, 255));
         lblUsersList.setText("Users List:");
-        add(lblUsersList, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 110, 30));
+        add(lblUsersList, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 110, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/BusinessAdmin/manageuser.jpeg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-330, 130, 850, 400));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/BusinessAdmin/Background.jpg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 1100));
@@ -334,6 +338,7 @@ public class ManageAppSubEmpUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox cmbRoles;
     private javax.swing.JPanel grpNewUser;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCreateUser;
     private javax.swing.JLabel lblEmployee;
